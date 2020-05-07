@@ -3,7 +3,7 @@ Mandatory: true
 Question: |
   Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
 fields:
-  - No label: JIWrelo_or_association
+  - No label: relationship_with
     datatype: radio
     choices:
       - Yes
