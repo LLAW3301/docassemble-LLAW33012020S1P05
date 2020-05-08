@@ -1,16 +1,16 @@
 ---
-Mandatory: true
+objects:
+  - endpoint: DADict
+---
 Question: |
   Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
 fields:
   - no label: relationship_with
-    datatype: radio
-    choices:
-      - Yes
-      - No
+    datatype: yesnoradio
 ---
+mandatory: true
 code: |
-  if relationship_with == 'Yes':
+  if relationship_with:
     endpoint['eligible']
   else:
     endpoint['ineligible']
