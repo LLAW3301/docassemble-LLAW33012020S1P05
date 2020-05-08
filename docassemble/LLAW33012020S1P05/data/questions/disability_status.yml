@@ -13,14 +13,14 @@ fields:
 ---
 mandatory: true
 code: |
-  if JIWdisabilitystatus == 'I have a disability' or 'I have had a disability in the past':
-    endpoint ['event_1']
-  elif JIWdisabilitystatus == 'I may develop a disability in the future' or 'People think I have a disability':
-    endpoint ['event_2']
-  elif JIWdisabilitystatus == 'None of the above':
-    endpoint ['event_3']
+  if ( JIWdisabilitystatus == 'I have a disability' ) or ( JIWdisabilitystatus == 'I have had a disability in the past' ):
+    endpoint['event_1']
+  elif JIWdisabilitystatus == ( 'I may develop a disability in the future' ) or ( JIWdisabilitystatus == 'People think I have a disability' ):
+    endpoint['event_2']
+  else:
+    endpoint['event_3']
 ---
-event: endpoint ['event_1']
+event: endpoint['event_1']
 question: What is/ was the nature of your disability?
 fields:
   - Please select which of the following disabilities applies to you: JIWdisability
@@ -38,14 +38,14 @@ fields:
       variable: JIWdisability
       is: Other
 ---
-event: endpoint ['event_2']
+event: endpoint['event_2']
 question: |
   Please explain
 fields: 
   - JIWexplanation
     input type: area
 ---
-event: endpoint ['event_3']
+event: endpoint['event_3']
 include:
   - noneoftheabove.yml
 ---
