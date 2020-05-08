@@ -3,7 +3,7 @@ Mandatory: true
 Question: |
   Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
 fields:
-  - No label: relationship_with
+  - no label: relationship_with
     datatype: radio
     choices:
       - Yes
@@ -16,32 +16,41 @@ code: |
     endpoint['ineligible']
   final_screen
 ---
-event: endpoint['ineligible']
+# This is the ineligible endpoint
 question: |
   ### This form is for ***disability discrimination***. 
   
   ######If you still believe this form is applicable to you, please press 'continue'.
   
   Pressing 'exit' will direct you back to the Equality Lawyers Website, and you will lose all progress so far.
-field: wishes_to_continue
+field: JIWwishes_to_continue
 action buttons:
   - label: Exit
     action: https://www.equalitylawyers.com.au/
     color: warning
     icon: sign-out-alt
 ---
-#needs to go to here if they press continue to the Q above but i dont know how to do that
 question: |
   Briefly describe why you feel this form is applicable to you
 fields:
   - This form is applicable to me because...: JIWapplicable
     input type: area
+--- 
+event: endpoint['ineligible']
+question: Thanks
+subquestion: |
+  ${JIWwishes_to_continue}
+  ${JIWapplicable}
+  Thanks for your time.
+buttons: 
+  - Exit: exit
+  - Restart: restart 
 ---
-event: endpoint['eligible']
+# This is the eligible endpoint
 question: |
-  What is the relationship or association you have with the person with a disability?
+  What is you relationship or association to the person with the disability?
 fields:
-  - Please select which of the following disabilities applies to you: JIWrelo_or_association
+  - Please select which of the following applies to you: JIWrelo_or_association
     datatype: radio
     choices:
     - Friend
@@ -52,6 +61,15 @@ fields:
     show if:
       variable: JIWrelo_or_association
       is: Other
+---
+event: endpoint['eligible']
+question: Thanks
+subquestion: |
+  ${JIWrelo_or_association}
+  Thanks for your time.
+buttons: 
+  - Exit: exit
+  - Restart: restart 
 ---
 event: final_screen
 question: We now have all of the personal information we need.
