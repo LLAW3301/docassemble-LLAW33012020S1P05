@@ -17,6 +17,9 @@ code: |
     if personal_disability:
       JIWdisability
     JIWcontinue_screen
+    JIWfirstname1
+    JIWdate_of_birth1
+    JIWemail1
 ---
 Question: Are you filling this out for yourself or for someone else?
 fields:
@@ -56,6 +59,7 @@ fields:
     choices:
     - E-mail
     - Mobile
+    - Neither 
 ---
 question: |
   What is your relation to the person who you are filling the form out on behalf of?
@@ -96,6 +100,38 @@ fields:
 continue button field: JIWcontinue_screen
 Question: |
   NOTE: for the remainder of the form, please answer questions as if it were the person who the form is for filling it out. All references to "you" refer to the person who this form is being filled out on behalf of. 
+---
+question: What is your name?
+fields:
+  - First Name: JIWfirstname1
+  - Last Name: JIWlastname1
+--- 
+question: What is your date of birth?
+fields:
+  - Birthdate: JIWdate_of_birth1
+    datatype: date
+---
+question: Contact details
+fields: 
+  - label: E-mail Address
+    field: JIWemail1
+    datatype: email 
+  - label: Phone Number
+    field: JIWmobile1
+    datatype: integer
+    required: false
+  - label: Address
+    field: JIWaddress1
+    datatype: area
+    hint: e.g., 123 First Street, Adelaide, South Australia, 5000
+    required: false
+  - label: Preferred method of contact
+    field: JIWcontact1
+    datatype: radio
+    choices:
+    - E-mail
+    - Mobile
+    - Neither
 ---
 objects:
   - endpoint: DADict
@@ -150,7 +186,7 @@ subquestion: |
 buttons: 
   - Continue: continue
   - Exit: exit
-    URL: https://www.equalitylawyers.com.au/
+    url: https://www.equalitylawyers.com.au/
 ---
 # event 1 endpoint
 code: |
@@ -195,7 +231,7 @@ subquestion: |
   We will now ask some questions about the incident of potential discrimination. 
 buttons: 
   - Exit: exit
-    URL: https://www.equalitylawyers.com.au/
+    url: https://www.equalitylawyers.com.au/
   - Continue: continue
 ---
 # event 3 endpoint
@@ -290,7 +326,7 @@ subquestion: |
 buttons:
   - Continue: continue
   - exit: exit
-    URL: https://www.equalitylawyers.com.au/
+    url: https://www.equalitylawyers.com.au/
 ---
 # event 4 endpoint
 code: |
