@@ -274,7 +274,7 @@ event: endpoint['ineligible']
 question: Thanks
 subquestion: |
   ${JIWhidden_code_variable_ineligible}
-  Thanks for your time.
+  We will now ask some questions about the incident of potential discrimination. 
 buttons: 
   - Continue: continue 
   - Exit: exit 
@@ -307,7 +307,7 @@ event: endpoint['eligible']
 question: Thanks
 subquestion: |
   ${JIWhidden_code_variable_eligible}
-  Thanks for your time.
+  We will now ask some questions about the incident of potential discrimination. 
 buttons: 
   - Continue: continue 
   - Exit: exit 
