@@ -1,0 +1,192 @@
+---
+mandatory: true
+question: |
+  Incident Information
+subquestion: |
+  You will now be asked questions about the incident or events you are reporting.
+  
+  When you are ready to begin, press **Continue**.
+continue button field: user_saw_intro 
+---
+mandatory: true
+question: |
+  When did the incident or events happen?
+fields:
+  - Date: EQLdate
+    datatype: date
+    required: false
+  - I do not remember: EQLidkwhen1
+    input type: radio
+    choices:
+      - I do not remember
+    required: false
+  - Time: EQLtime
+    datatype: time
+    required: false
+  - I do not remember: EQLidkwhen2
+    input type: radio
+    choices:
+      - I do not remember
+    required: false
+---
+mandatory: true
+question: |
+  Where did this happen?
+fields: 
+  - Please choose: EQLwhere
+    choices:
+    - Home 
+    - Work or other employment
+    - School/University/TAFE/Other education facility
+    - Public transport
+    - Restaurant or cafe
+    - Public setting
+    - Sporting or recreational actiivity
+    - Accessing goods or services
+    - Shopping centre or mall
+    - I do not remember
+    - Other
+  - Please specify: EQLwhere
+    show if:
+      variable: EQLwhere
+      is: Other
+---
+mandatory: true
+question: |
+  Who was there? What happened?
+fields:
+  - Please tell us who was involved, this includes any witnesses: EQLwho
+    input type: area
+    rows: 10
+  - Please tell us what happened, be as specific as possible: EQLwhat
+    input type: area
+    rows: 10
+  - Was there an assistance or service animal involved in this incident?: EQLanimal
+    choices:
+     - Yes, someone asked for the animal to be controlled.
+     - Yes, someone suspected the animal was unhygineic or had a disease.
+     - Yes, someone asked if the animal is properly trained.
+     - Yes, but they asked or suspected something else.
+     - No, an animal was not involved.
+  - Please specify: EQLwhere
+    show if:
+      variable: EQLanimal
+      is: Yes, but they asked or suspected something else.
+  - If you have any evidence to support your claim please upload it here: user_picture 
+    datatype: file 
+    required: false
+---
+mandatory: true
+question: |
+  Incident Questions Completed
+subquestion: |
+  Thank you for filling out this section of the form. 
+  
+  You will now be asked questions about what you would like to see happen with your claim moving forward.
+  
+  When you are ready to continue, press the button below.
+buttons:
+ - Continue: continue
+---
+mandatory: true
+Question: |
+  Desired Outcome
+subquestion: |
+  What is your desired outcome moving forward?
+fields:
+  - Please select: EQLoutcome
+    choices:
+      - I would like compensation
+      - I would like to see policy change
+      - I would like an apology
+      - I am not sure 
+      - Other
+  - Please specify: EQLoutcome
+    show if:
+      variable: EQLoutcome
+      is: Other
+---
+mandatory: true
+question: |
+  Desired Outcome Information Completed
+subquestion: |
+  Thank you for filling out this section of the form. You will now be displayed with a summary of the infromation you uahve provided. 
+buttons:
+ - Continue: continue
+---
+mandatory: True
+question:  Summary of Imformation
+subquestion: |
+  #### Thank you for successfully completing the *'Ensuring Equality: Discrimination Reporting Form'*.
+  
+  Your repsonses have been recorded and are available for review. Below is a table displaying all infomation you provided:
+  
+  Question                                            |Response
+  ----------------------------------------------------|---------------------
+  First Name                                          |${ JIWfirstname1 }
+  Last Name                                           |${ JIWlastname1 }
+  Date of Birth                                       |${ JIWdate_of_birth1 }
+  Email Address                                       |${ JIWemail1 }
+  Phone Number                                        |${ JIWmobile1 }
+  Residential Address                                 |${ JIWaddress1 }
+  Preferred method of contact                         |${ JIWcontact1 }
+  Disibility Classification                           |${ JIWdisabilitystatus + 'and' + JIWdisability } 
+  
+  What date did the incident occur?                   |${ EQLdate + ' ' + EQLidkwhen1 }
+  What time did the incident occur?                   |${ EQLtime + ' ' + EQLidkwhen2 }
+  Where did this happen?                              |${ EQLwhere }
+  Who was there?                                      |${ EQLwho }
+  What happened?                                      |${ EQLwhat }
+  Supporting evidence                                 |${ user_picture }
+  Was there an assistance or service animal involved? |${ EQLanimal }
+
+  If any of the above information is incorrect, press **Start Again** to enter the information again. 
+buttons:
+  - Start Again: restart
+under: |
+    If the above information is correct you are able to download a PDF version below.
+attachment:
+  docx template file: 
+  valid formats: 
+    - pdf
+under: |
+  Would you like a copy of this claim to be sent to Natalie Wade, a lawyer at Equality Lawyers? In doing this Natalie will be in touch shortly to discuss your claim and any possible outcomes available to you.
+
+yesno: submit_to_authority
+attachment:
+  - name: Ensuring Equality Form
+    filename: Ensuring_Equality_Form
+    variable name: EQLform
+---
+objects:
+  - authority: Individual
+---
+code: |
+  % if submit_to_authority:
+    % if sent_ok:
+  Your document was sent.
+    % else:
+  Your document was not sent.
+    % endif
+---
+code: |
+  sent_ok = send_email(to=[authority],
+                       template=my_email,
+                       attachments=[EQLform])
+---
+code: |
+  authority.name.first = 'Natalie'
+  authority.name.last = 'Wade'
+  authority.email = 'natalie@equalitylawyers.com.au'
+---
+template: my_email
+subject: |
+  Ensuring Equality: Disability Discriminatioin Form
+content: |
+  Dear Natalie,
+  Please see attached.
+---
+buttons:
+  Exit: exit
+  https://equalitylawyers.com.au
+---
