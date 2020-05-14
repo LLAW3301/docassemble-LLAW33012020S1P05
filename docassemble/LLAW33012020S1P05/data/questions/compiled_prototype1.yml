@@ -1,0 +1,496 @@
+---
+objects:
+  - endpoint: DADict
+---
+# welcome screen.
+mandatory: True
+question: "Ensuring Equality: Discrimination Reporting Form"
+subquestion: |
+  ### **Welcome**
+  
+  > Equality Lawyers' *Ensuring Equality: Discrimination Reporting Form* is a questionnaire-based software application designed to identify potential incidents of disability discrimination and provide assistance to victims going forward. 
+  
+   It is common for people who have been treated unfavourably because of their disability to be unsure as to whether their situation amounts to discrimination before the law. This reporting form will seek to clarify this uncertainty and connect individuals with Equality Lawyers' advice.
+  
+  In accordance with the State and National laws designed to protect those with disabilities from unfair treatment, the *Ensuring Equality: Discrimination Reporting Form* will ask users a set of questions to determine whether an incident of disability discrimination has occurred and hopefully provide a variety of options for resolution. This may be as simple as a conversation with a local business or a reform of current policy.
+  
+  If you wish to access additional information regarding disability discrimination or other disability focused legal issues visit our [services page](https://www.equalitylawyers.com.au/services).
+  
+  If you wish to continue and complete the *Ensuring Equality: Discrimination Reporting Form* press **Continue**.
+buttons:
+  - "Continue": continue
+  - "Return to Home Page": exit
+    url: https://www.equalitylawyers.com.au/
+---
+# Disclaimer Screen 
+mandatory: True 
+question: Disclaimer and Privacy Policy
+subquestion: | 
+   
+   ***PURPOSE OF GENERATED DATA***
+   
+   It is important that users of the *Ensuring Equality: Discrimination Reporting Form* do not misconstrue any generated information or data as legal advice provided by Equality Lawyers. Accordingly, the use of the *Ensuring Equality: Discrimination Reporting Form* does not automatically engage the legal services of Equality Lawyers. This form is simply a tool to assist Equality Lawyers in determining whether a situation amounts to a breach of the *Disability Discrimination Act 1992 (Cth)* and other State based Acts. 
+   
+   Upon completion, any information provided by users will be recorded and stored in accordance with Equality Lawyer's privacy policy (below) and the *Privacy Act 1988 (Cth)*. Users will be able to view and download their reponses in PDF document format. This document will also be forwarded to Equality Lawyers. Whether Equality Lawyers decides to contact users and provide follow-up legal advice regarding the documented information is of the discretion of Equality Lawyers.  
+   
+   ***NEED TO INSERT NATALIE'S PRIVACY POLICY HERE***
+   
+   Do you accept these terms and want to proceed? 
+buttons:
+  - "I accept and wish to continue": continue
+  - "I do not accept": exit
+    url: https://www.equalitylawyers.com.au/
+---
+Mandatory: true
+continue button field: target_variable
+Question: |
+  We will now ask some questions about you.
+subquestion: |
+  When you are ready to begin, press **Continue**.
+---
+mandatory: True
+code: |
+  JIWperson_filling_in_form
+  JIWfirstname
+  JIWdate_of_birth
+  JIWemail
+  if JIWperson_filling_in_form == 'Someone else':
+    JIWrelation
+    if personal_disability:
+      JIWdisability
+    JIWcontinue_screen
+    JIWfirstname1
+    JIWdate_of_birth1
+    JIWemail1
+---
+Question: Are you filling this out for yourself or for someone else?
+fields:
+  - Who is this form for?: JIWperson_filling_in_form
+    datatype: radio
+    choices:
+    - Myself
+    - Someone else
+---
+question: What is your name?
+fields:
+  - First Name: JIWfirstname
+  - Last Name: JIWlastname
+--- 
+question: What is your date of birth?
+fields:
+  - Birthdate: JIWdate_of_birth
+    datatype: date
+---
+question: Contact details
+fields: 
+  - label: E-mail Address
+    field: JIWemail
+    datatype: email 
+  - label: Phone Number
+    field: JIWmobile 
+    datatype: integer
+    required: false
+  - label: Address
+    field: JIWaddress
+    datatype: area
+    hint: e.g., 123 First Street, Adelaide, South Australia, 5000
+    required: false
+  - label: Preferred method of contact
+    field: JIWcontact
+    datatype: radio
+    choices:
+    - E-mail
+    - Mobile
+    - Neither 
+---
+question: |
+  What is your relation to the person who you are filling the form out on behalf of?
+fields:
+  - Please select which of the following best applies: JIWrelation
+    datatype: radio
+    choices:
+    - Parent/ guardian
+    - Carer
+    - Partner
+    - Friend
+    - Other
+  - Other: other_relation
+    show if:
+      variable: JIWrelation
+      is: Other
+---
+question: Do you yourself have a disability?
+yesno: personal_disability
+---
+question: What is the nature of your disability?
+fields:
+  - Please select which of the following disabilities applies to you: JIWdisability
+    datatype: radio
+    choices:
+    - Physical
+    - Sensory
+    - Psychiatric
+    - Neurological
+    - Cognitive
+    - Intellectual
+    - Other
+  - Other: other_disability
+    show if:
+      variable: JIWdisability
+      is: Other
+---
+continue button field: JIWcontinue_screen
+Question: |
+  NOTE: For the remainder of the form, please answer the questions in relation to the affected person. All references to "you" will refer to the person who this form is being filled out on behalf of. 
+---
+question: What is your name?
+fields:
+  - First Name: JIWfirstname1
+  - Last Name: JIWlastname1
+--- 
+question: What is your date of birth?
+fields:
+  - Birthdate: JIWdate_of_birth1
+    datatype: date
+---
+question: Contact details
+fields: 
+  - label: E-Mail Address
+    field: JIWemail1
+    datatype: email 
+  - label: Phone Number
+    field: JIWmobile1
+    datatype: integer
+    required: false
+  - label: Residential Address
+    field: JIWaddress1
+    datatype: area
+    hint: e.g., 123 First Street, Adelaide, South Australia, 5000
+    required: false
+  - label: Preferred method of contact
+    field: JIWcontact1
+    datatype: radio
+    choices:
+    - E-mail
+    - Mobile
+    - Neither
+---
+mandatory: true
+question: Disability status 
+fields:
+  - Please select which of the following best applies to you: JIWdisabilitystatus
+    datatype: radio
+    choices:
+    - I have a disability
+    - I have had a disability in the past
+    - I may develop a disability in the future 
+    - People think I have a disability 
+    - None of the above
+---
+mandatory: true
+code: |
+  if ( JIWdisabilitystatus == 'I have a disability' ) or ( JIWdisabilitystatus == 'I have had a disability in the past' ):
+    endpoint['event_1']
+  elif JIWdisabilitystatus == 'I may develop a disability in the future':
+    endpoint['event_2']
+  elif JIWdisabilitystatus == 'People think I have a disability':
+    endpoint['event_3']
+  else:
+    endpoint['event_4']
+---
+# event 1 endpoint
+question: What is (or was) the nature of your disability?
+fields:
+  - Please select which of the following disabilities applies (or applied) to you: JIWdisability
+    datatype: radio
+    choices:
+    - Physical
+    - Sensory
+    - Psychiatric
+    - Neurological
+    - Cognitive
+    - Intellectual
+    - Other
+  - Other: other_disability
+    show if:
+      variable: JIWdisability
+      is: Other
+---
+# event 1 endpoint
+event: endpoint['event_1']
+question: |
+  Personal Information Questions Completed 
+subquestion: |
+  ${JIWhidden_code_variable1}
+  We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination. 
+buttons: 
+  - Continue: continue
+  - Exit: exit
+    url: https://www.equalitylawyers.com.au/
+---
+# event 1 endpoint
+code: |
+  JIWdisability
+  JIWhidden_code_variable1 = ''
+---
+# event 2 endpoint
+question: |
+  Why may you develop a disability in the future? What disability?
+fields: 
+  - Please explain: JIWexplanation_future
+    input type: area
+---
+# event 2 endpoint
+event: endpoint['event_2']
+question: |
+  Personal Information Questions Completed 
+subquestion: |
+  ${JIWhidden_code_variable2}
+  We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.  
+buttons: 
+  - Continue: continue
+  - Exit: exit
+    URL: https://www.equalitylawyers.com.au/
+---
+# event 2 endpoint
+code: |
+  JIWexplanation_future
+  JIWhidden_code_variable2 = ''
+---
+# event 3 endpoint
+question: |
+  Why do people think you have a disability? What disability?
+fields: 
+  - Please explain: JIWexplanation_people_think
+    input type: area
+---
+# event 3 endpoint
+event: endpoint['event_3']
+question: |
+  Personal Information Questions Completed
+subquestion: |
+  ${JIWhidden_code_variable3} 
+  We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.  
+buttons: 
+  - Exit: exit
+    url: https://www.equalitylawyers.com.au/
+  - Continue: continue
+---
+# event 3 endpoint
+code: |
+  JIWexplanation_people_think
+  JIWhidden_code_variable3 = ''
+---
+# event 4 endpoint
+Question: |
+  Relationship or Association
+subquestion: |  
+  Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
+fields:
+  - no label: relationship_with
+    datatype: yesnoradio
+---
+# event 4 endpoint
+# This is the ineligible endpoint
+question: |
+  ### This form is for ***disability discrimination***. 
+  
+  ######If you still believe this form is applicable to you, please press **Continue**.
+  
+  Pressing **Exit** will direct you back to the Equality Lawyers Website, and you will lose all progress so far.
+field: JIWwishes_to_continue
+action buttons:
+  - label: Exit
+    action: https://www.equalitylawyers.com.au/
+    color: warning
+    icon: sign-out-alt
+---
+# event 4 endpoint
+question: |
+  Briefly describe why you feel this form is applicable to you
+fields:
+  - This form is applicable to me because...: JIWapplicable
+    input type: area
+---
+event: endpoint['ineligible']
+question: |
+  Personal Information Questions Completed
+subquestion: |
+  ${JIWhidden_code_variable_ineligible}
+  We will now ask some questions about the incident or events which may be of potential discrimination.  
+buttons: 
+  - Continue: continue 
+  - Exit: exit 
+--- 
+# event 4 endpoint
+code: |
+  JIWwishes_to_continue
+  JIWapplicable
+  JIWhidden_code_variable_ineligible = ''
+---
+# event 4 endpoint
+# This is the eligible endpoint
+question: |
+  What is you relationship or association to the person with the disability?
+fields:
+  - Please select which of the following applies to you: JIWrelo_or_association
+    datatype: radio
+    choices:
+    - Friend
+    - Partner 
+    - Family member 
+    - Other
+  - Other: other_disability
+    show if:
+      variable: JIWrelo_or_association
+      is: Other
+---
+# event 4 endpoint
+event: endpoint['eligible']
+question: Thanks
+subquestion: |
+  ${JIWhidden_code_variable_eligible}
+  We will now ask some questions about the incident or events which may be of potential discrimination.  
+buttons: 
+  - Continue: continue 
+  - Exit: exit 
+---
+# event 4 endpoint
+code: |
+  JIWrelo_or_association
+  JIWhidden_code_variable_eligible = ''
+---
+# event 4 endpoint
+event: endpoint['event_4']
+question: We now have all of the personal information we need.
+subquestion: |
+  ${JIWhidden_code_variable4}
+  We will now ask some questions about the incident or events which may be of potential discrimination.  
+buttons:
+  - Continue: continue
+  - exit: exit
+    url: https://www.equalitylawyers.com.au/
+---
+# event 4 endpoint
+code: |
+  if relationship_with:
+    event: endpoint['eligible']
+  else:
+    endpoint['ineligible']
+  JIWhidden_code_variable4 = ''
+---
+---
+mandatory: true
+question: |
+  Incident Information
+subquestion: |
+  You will now be asked questions about the incident or events you are reporting.
+  
+  When you are ready to begin, press **Continue**.
+continue button field: user_saw_intro 
+---
+mandatory: true
+question: |
+  When did the incident or events happen?
+fields:
+  - Date: EQLdate
+    datatype: date
+    required: false
+  - I do not remember: EQLidkwhen1
+    input type: radio
+    choices:
+      - I do not remember
+    required: false
+  - Time: EQLtime
+    datatype: time
+    required: false
+  - I do not remember: EQLidkwhen2
+    input type: radio
+    choices:
+      - I do not remember
+    required: false
+---
+mandatory: true
+question: |
+  Where did this happen?
+fields: 
+  - Please choose: EQLwhere
+    choices:
+    - Home 
+    - Work or other employment
+    - School/University/TAFE/Other education facility
+    - Public transport
+    - Restaurant or cafe
+    - Public setting
+    - Sporting or recreational actiivity
+    - Accessing goods or services
+    - Shopping centre or mall
+    - I do not remember
+    - Other
+  - Please specify: EQLwhere
+    show if:
+      variable: EQLwhere
+      is: Other
+---
+mandatory: true
+question: |
+  Who was there? What happened?
+fields:
+  - Please tell us who was involved, this includes any witnesses: EQLwho
+    input type: area
+    rows: 10
+  - Please tell us what happened, be as specific as possible: EQLwhat
+    input type: area
+    rows: 10
+  - Was there an assistance or service animal involved in this incident?: EQLanimal
+    choices:
+     - Yes, someone asked for the animal to be controlled.
+     - Yes, someone suspected the animal was unhygineic or had a disease.
+     - Yes, someone asked if the animal is properly trained.
+     - Yes, but they asked or suspected something else.
+     - No, an animal was not involved.
+  - Please specify: EQLwhere
+    show if:
+      variable: EQLanimal
+      is: Yes, but they asked or suspected something else.
+  - If you have any evidence to support your claim please upload it here: user_picture 
+    datatype: file 
+    required: false
+---
+mandatory: true
+question: |
+  Incident Questions Completed
+subquestion: |
+  Thank you for filling out this section of the form. 
+  
+  You will now be asked questions about what you would like to see happen with your claim moving forward.
+  
+  When you are ready to continue, press the button below.
+buttons:
+ - Continue: continue
+---
+mandatory: true
+Question: |
+  Desired Outcome
+subquestion: |
+  What is your desired outcome moving forward?
+fields:
+  - Please select: EQLoutcome
+    choices:
+      - I would like compensation
+      - I would like to see policy change
+      - I would like an apology
+      - I am not sure 
+      - Other
+  - Please specify: EQLoutcome
+    show if:
+      variable: EQLoutcome
+      is: Other
+---
+mandatory: true
+question: |
+  Desired Outcome Information Completed
+subquestion: |
+  Thank you for filling out this section of the form. You will now be displayed with a summary of the infromation you uahve provided. 
+buttons:
+ - Continue: continue
