@@ -1,0 +1,126 @@
+---
+objects:
+  - endpoint: DADict
+---
+include:
+  - personal_info_questions.yml
+  - disability_questions.yml
+  - incident_questions.yml
+---
+# welcome screen.
+mandatory: True
+question: "Ensuring Equality: Discrimination Reporting Form"
+subquestion: |
+  ### **Welcome**
+  
+  > Equality Lawyers' *Ensuring Equality: Discrimination Reporting Form* is a questionnaire-based software application designed to identify potential incidents of disability discrimination and provide assistance to victims going forward. 
+  
+   It is common for people who have been treated unfavourably because of their disability to be unsure as to whether their situation amounts to discrimination before the law. This reporting form will seek to clarify this uncertainty and connect individuals with Equality Lawyers' advice.
+  
+  In accordance with the State and National laws designed to protect those with disabilities from unfair treatment, the *Ensuring Equality: Discrimination Reporting Form* will ask users a set of questions to determine whether an incident of disability discrimination has occurred and hopefully provide a variety of options for resolution. This may be as simple as a conversation with a local business or a reform of current policy.
+  
+  If you wish to access additional information regarding disability discrimination or other disability focused legal issues visit our [services page](https://www.equalitylawyers.com.au/services).
+  
+  If you wish to continue and complete the *Ensuring Equality: Discrimination Reporting Form* press **Continue**.
+buttons:
+  - "Continue": continue
+  - "Return to Home Page": exit
+    url: https://www.equalitylawyers.com.au/
+---
+# Disclaimer Screen 
+mandatory: True 
+question: Disclaimer and Privacy Policy
+subquestion: | 
+   
+   ***PURPOSE OF GENERATED DATA***
+   
+   It is important that users of the *Ensuring Equality: Discrimination Reporting Form* do not misconstrue any generated information or data as legal advice provided by Equality Lawyers. Accordingly, the use of the *Ensuring Equality: Discrimination Reporting Form* does not automatically engage the legal services of Equality Lawyers. This form is simply a tool to assist Equality Lawyers in determining whether a situation amounts to a breach of the *Disability Discrimination Act 1992 (Cth)* and other State based Acts. 
+   
+   Upon completion, any information provided by users will be recorded and stored in accordance with Equality Lawyer's privacy policy (below) and the *Privacy Act 1988 (Cth)*. Users will be able to view and download their reponses in PDF document format. This document will also be forwarded to Equality Lawyers. Whether Equality Lawyers decides to contact users and provide follow-up legal advice regarding the documented information is of the discretion of Equality Lawyers.  
+   
+   ***NEED TO INSERT NATALIE'S PRIVACY POLICY HERE***
+   
+   Do you accept these terms and want to proceed? 
+buttons:
+  - "I accept and wish to continue": continue
+  - "I do not accept": exit
+    url: https://www.equalitylawyers.com.au/
+---
+# Collects personal information
+mandatory: True
+code: |
+  JIWperson_filling_in_form
+  JIWfirstname
+  JIWdate_of_birth
+  JIWemail
+  if JIWperson_filling_in_form == 'Someone else':
+    JIWrelation
+    if personal_disability:
+      JIWdisability
+    JIWcontinue_screen
+    JIWfirstname1
+    JIWdate_of_birth1
+    JIWemail1
+---
+# Collects information about Disability
+mandatory: true
+code: |
+  if ( JIWdisabilitystatus == 'I have a disability' ) or ( JIWdisabilitystatus == 'I have had a disability in the past' ):
+    JIWdisability
+  elif JIWdisabilitystatus == 'I may develop a disability in the future':
+    JIWexplanation_future
+  elif JIWdisabilitystatus == 'People think I have a disability':
+    JIWexplanation_people_think
+  else:
+    if relationship_with:
+      JIWrelo_or_association
+    else:
+      JIWwishes_to_continue
+      JIWapplicable
+  # We always run this
+  event_1_continue
+---
+# Collects information about the incident
+mandatory: True
+code: |
+  user_saw_intro
+  EQLdate
+  EQLwhere
+  EQLwho
+  EQL_incident_questions_completed
+---
+# Collects information about the desired outcome
+mandatory: True
+code: | 
+  EQLoutcome
+  EQL_desired_outcome_complete
+---
+# Completion of personal information questions
+question: |
+  Personal Information Questions Completed 
+subquestion: |
+  We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.
+continue button field: event_1_continue
+---
+Question: |
+  Desired Outcome
+subquestion: |
+  What is your desired outcome moving forward?
+fields:
+  - Please select: EQLoutcome
+    choices:
+      - I would like compensation
+      - I would like to see policy change
+      - I would like an apology
+      - I am not sure 
+      - Other
+  - Please specify: EQLoutcome
+    show if:
+      variable: EQLoutcome
+      is: Other
+---
+question: |
+  Desired Outcome Information Completed
+subquestion: |
+  Thank you for filling out this section of the form. You will now be displayed with a summary of the infromation you uahve provided. 
+continue button field: EQL_desired_outcome_complete
