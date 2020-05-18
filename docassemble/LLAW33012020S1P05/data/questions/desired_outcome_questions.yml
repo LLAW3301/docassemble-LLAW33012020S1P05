@@ -1,0 +1,26 @@
+---
+Question: |
+  Desired Outcome
+subquestion: |
+  What is your desired outcome moving forward?
+fields:
+  - Please select: EQLoutcome
+    choices:
+      - I would like compensation
+      - I would like to see policy change
+      - I would like an apology
+      - I am not sure 
+      - Other
+  - Please specify: EQLoutcome
+    show if:
+      variable: EQLoutcome
+      is: Other
+---
+question: |
+  Desired Outcome Information Completed
+subquestion: |
+  Thank you for filling out this section of the form. 
+  
+  You will now be shown a summary of the infromation you have provided.
+continue button field: EQL_desired_outcome_complete
+---
