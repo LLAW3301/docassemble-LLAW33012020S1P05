@@ -1,0 +1,85 @@
+---
+question: |
+  Incident Information
+subquestion: |
+  You will now be asked questions about the incident or events you are reporting.
+  
+  When you are ready to begin, press **Continue**.
+continue button field: user_saw_intro 
+---
+question: |
+  When did the incident or events happen?
+fields:
+  - Date: EQLdate
+    datatype: date
+    required: false
+  - I do not remember: EQLidkwhen1
+    input type: radio
+    choices:
+      - I do not remember
+    required: false
+  - Time: EQLtime
+    datatype: time
+    required: false
+  - I do not remember: EQLidkwhen2
+    input type: radio
+    choices:
+      - I do not remember
+    required: false
+---
+question: |
+  Where did this happen?
+fields: 
+  - Please choose: EQLwhere
+    choices:
+    - Home 
+    - Work or other employment
+    - School/University/TAFE/Other education facility
+    - Public transport
+    - Restaurant or cafe
+    - Public setting
+    - Sporting or recreational actiivity
+    - Accessing goods or services
+    - Shopping centre or mall
+    - I do not remember
+    - Other
+  - Please specify: EQLwhere
+    show if:
+      variable: EQLwhere
+      is: Other
+---
+question: |
+  Who was there? What happened?
+fields:
+  - Please tell us who was involved, this includes any witnesses: EQLwho
+    input type: area
+    rows: 10
+  - Please tell us what happened, be as specific as possible: EQLwhat
+    input type: area
+    rows: 10
+  - Was there an assistance or service animal involved in this incident?: EQLanimal
+    choices:
+     - Yes, someone asked for the animal to be controlled.
+     - Yes, someone suspected the animal was unhygineic or had a disease.
+     - Yes, someone asked if the animal is properly trained.
+     - Yes, but they asked or suspected something else.
+     - No, an animal was not involved.
+  - Please specify: EQLwhere
+    show if:
+      variable: EQLanimal
+      is: Yes, but they asked or suspected something else.
+  - If you have any evidence to support your claim please upload it here: user_picture 
+    datatype: file 
+    required: false
+---
+question: |
+  Incident Questions Completed
+subquestion: |
+  Thank you for filling out this section of the form. 
+  
+  You will now be asked questions about what you would like to see happen with your claim moving forward.
+  
+  When you are ready to continue, press the button below.
+continue button field: EQL_incident_questions_completed
+---
+ 
