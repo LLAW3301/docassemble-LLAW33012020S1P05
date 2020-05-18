@@ -62,7 +62,7 @@ fields:
      - Yes, someone asked if the animal is properly trained.
      - Yes, but they asked or suspected something else.
      - No, an animal was not involved.
-  - Please specify: EQLwhere
+  - Please specify: EQLanimal
     show if:
       variable: EQLanimal
       is: Yes, but they asked or suspected something else.
