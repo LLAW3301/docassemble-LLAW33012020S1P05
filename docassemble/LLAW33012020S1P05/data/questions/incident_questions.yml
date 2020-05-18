@@ -53,10 +53,8 @@ question: |
 fields:
   - Please tell us who was involved, this includes any witnesses: EQLwho
     input type: area
-    rows: 10
   - Please tell us what happened, be as specific as possible: EQLwhat
     input type: area
-    rows: 10
   - Was there an assistance or service animal involved in this incident?: EQLanimal
     choices:
      - Yes, someone asked for the animal to be controlled.
@@ -68,9 +66,10 @@ fields:
     show if:
       variable: EQLanimal
       is: Yes, but they asked or suspected something else.
-  - If you have any evidence to support your claim please upload it here: user_picture 
-    datatype: file 
-    required: false
+  - Do you have any evidence that could be used to support your claim? This could be photo, video or audio etc.: EQLevidence
+    choices:
+    - Yes
+    - No
 ---
 question: |
   Incident Questions Completed
