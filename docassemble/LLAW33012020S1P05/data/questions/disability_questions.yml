@@ -33,10 +33,12 @@ fields:
 Question: |
   Relationship or Association
 subquestion: |  
-  Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
+  Do you feel that you have been treated differently because of your relationship or association with a person who has a disability?
 fields:
   - no label: relationship_with
-    datatype: yesnoradio
+    choices: 
+    - Yes
+    - No
 ---
 question: |
   ### This form is for ***disability discrimination***. 

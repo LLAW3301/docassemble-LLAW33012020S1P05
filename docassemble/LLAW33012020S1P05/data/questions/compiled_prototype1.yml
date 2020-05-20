@@ -30,7 +30,7 @@ question: |
 review:
   - Edit answer: JIWperson_filling_in_form
     button: |
-      Person filling in form: *${ JIWperson_filling_in_form }*
+      Are you filling in this form for yourself or someone else?: *${ JIWperson_filling_in_form }*
   - Edit answer: JIWfirstname
     button: |
       Name: *${ JIWfirstname }* *${ JIWlastname }*
@@ -46,6 +46,22 @@ review:
   - Edit answer: JIWdis_stat
     button: |
       Disability status: *${ JIWdis_stat }*
+# line break
+  - Edit answer: JIWfirstname1
+    button: |
+      Name: *${ JIWfirstname1 }* *${ JIWlastname1 }*
+  - Edit answer: JIWemail1
+    button: |
+      E-mail: *${ JIWemail1 }*
+  - Edit answer: JIWmobile1
+    button: |
+      Phone number: *${ JIWmobile1 }*
+  - Edit answer: JIWaddress1
+    button: |
+      Residential address: *${ JIWaddress1 }*
+  - Edit answer: personal_disability
+    button: |
+      Do you have a disability yourself?: *${ personal_disability }*
 ---
 event: Disability Status
 section: Disability Status
@@ -54,7 +70,22 @@ question: |
 review:
   - Edit answer: JIWdisability
     button: |
-      Nature of disability: *${ JIWdisability }*
+      Nature of disability: *${ JIWexplanation_future }*
+  - Edit answer: JIWexplanation_future
+    button: |
+      Future disability: *${ JIWexplanation_future }*
+  - Edit answer: JIWexplanation_people_think
+    button: |
+      Disability people think I have: *${ JIWexplanation_people_think }*
+  - Edit answer: relationship_with
+    button: |
+      Do people treat you differently because you have a relationship with a disabled person?: *${ relationship_with }*
+  - Edit answer: JIWapplicable
+    button: |
+      This form applies to me because...: *${ JIWapplicable }*
+  - Edit answer: JIWrelo_or_association
+    button: |
+      What is your relationship with the disabled person?: *${ JIWrelo_or_association }*
 ---
 event: Incident Information
 section: Incident Information
