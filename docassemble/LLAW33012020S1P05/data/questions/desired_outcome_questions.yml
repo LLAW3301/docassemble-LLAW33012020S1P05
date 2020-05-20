@@ -1,0 +1,26 @@
+---
+Question: |
+  What would you like to see happen once filling out this form?
+fields:
+  - no label: EQLoutcome
+    datatype: radio
+    choices:
+      - I would like to speak with a lawyer
+      - I would like some advice
+      - I would like to know my options
+      - I am not sure 
+      - Other
+  - Please specify: EQLoutcome
+    show if:
+      variable: EQLoutcome
+      is: Other
+section: Desired Outcome
+---
+question: |
+  Desired Outcome Information Completed
+subquestion: |
+  Thank you for filling out this section of the form. 
+  
+  You will now be shown a summary of the infromation you have provided.
+continue button field: EQL_desired_outcome_complete
+---

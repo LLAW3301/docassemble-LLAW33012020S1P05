@@ -1,48 +1,44 @@
 ---
-Question: Are you filling this out for yourself or for someone else?
+Question: |
+  Are you filling out this form for yourself or somenoe else?
 fields:
-  - Who is this form for?: JIWperson_filling_in_form
+  - no label: JIWperson_filling_in_form
     datatype: radio
     choices:
     - Myself
     - Someone else
+section: Personal Infromation
 ---
-question: What is your name?
+question: |
+  What is your name?
 fields:
   - First Name: JIWfirstname
   - Last Name: JIWlastname
---- 
-question: What is your date of birth?
-fields:
-  - Birthdate: JIWdate_of_birth
-    datatype: date
+    required: false
+section: Personal Infromation
 ---
-question: Contact details
+question: |
+  Contact details
 fields: 
   - label: E-mail Address
     field: JIWemail
     datatype: email 
+    required: false
   - label: Phone Number
     field: JIWmobile 
     datatype: integer
     required: false
-  - label: Address
+  - label: Residential Address
     field: JIWaddress
     datatype: area
     hint: e.g., 123 First Street, Adelaide, South Australia, 5000
     required: false
-  - label: Preferred method of contact
-    field: JIWcontact
-    datatype: radio
-    choices:
-    - E-mail
-    - Mobile
-    - Neither 
+section: Personal Infromation
 ---
 question: |
-  What is your relation to the person who you are filling the form out on behalf of?
+  What is your relationship with the effected person?
 fields:
-  - Please select which of the following best applies: JIWrelation
+  - no label: JIWrelation
     datatype: radio
     choices:
     - Parent/ guardian
@@ -50,17 +46,23 @@ fields:
     - Partner
     - Friend
     - Other
-  - Other: other_relation
+  - Please specify: other_relation
     show if:
       variable: JIWrelation
       is: Other
 ---
-question: Do you yourself have a disability?
-yesno: personal_disability
----
-question: What is the nature of your disability?
+question: |
+  Do you have a disability yourslef?
 fields:
-  - Please select which of the following disabilities applies to you: JIWdisability
+  - no label: personal_disability
+    choices: 
+    - Yes
+    - No
+---
+question: |
+  What is the nature of your disability?
+fields:
+  - no label: JIWdisability
     datatype: radio
     choices:
     - Physical
@@ -70,7 +72,7 @@ fields:
     - Cognitive
     - Intellectual
     - Other
-  - Other: other_disability
+  - Please specify: other_disability
     show if:
       variable: JIWdisability
       is: Other
@@ -79,21 +81,20 @@ continue button field: JIWcontinue_screen
 Question: |
   NOTE: For the remainder of the form, please answer the questions in relation to the affected person. All references to "you" will refer to the person who this form is being filled out on behalf of. 
 ---
-question: What is your name?
+question: |
+  What is your name?
 fields:
   - First Name: JIWfirstname1
   - Last Name: JIWlastname1
---- 
-question: What is your date of birth?
-fields:
-  - Birthdate: JIWdate_of_birth1
-    datatype: date
+    required: false
 ---
-question: Contact details
+question: |
+  Contact details
 fields: 
   - label: E-Mail Address
     field: JIWemail1
     datatype: email 
+    required: false
   - label: Phone Number
     field: JIWmobile1
     datatype: integer
@@ -103,17 +104,11 @@ fields:
     datatype: area
     hint: e.g., 123 First Street, Adelaide, South Australia, 5000
     required: false
-  - label: Preferred method of contact
-    field: JIWcontact1
-    datatype: radio
-    choices:
-    - E-mail
-    - Mobile
-    - Neither
 ---
-question: Disability status 
+question: |
+  Please select the statement that best reflects your disability?
 fields:
-  - Please select which of the following best applies to you: JIWdisabilitystatus
+  - no label: JIWdis_stat
     datatype: radio
     choices:
     - I have a disability

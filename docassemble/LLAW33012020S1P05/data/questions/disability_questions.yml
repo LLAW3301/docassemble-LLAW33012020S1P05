@@ -1,7 +1,8 @@
 ---
-question: What is (or was) the nature of your disability?
+question: |
+  What is the nature of the disability?
 fields:
-  - Please select which of the following disabilities applies (or applied) to you: JIWdisability
+  - no label: JIWdisability
     datatype: radio
     choices:
     - Physical
@@ -11,30 +12,33 @@ fields:
     - Cognitive
     - Intellectual
     - Other
-  - Other: other_disability
+  - Please specify: other_disability
     show if:
       variable: JIWdisability
       is: Other
+section: Disability Status
 ---
 question: |
   Why may you develop a disability in the future? What disability?
 fields: 
-  - Please explain: JIWexplanation_future
+  - Please specify: JIWexplanation_future
     input type: area
 ---
 question: |
   Why do people think you have a disability? What disability?
 fields: 
-  - Please explain: JIWexplanation_people_think
+  - Please specify: JIWexplanation_people_think
     input type: area
 ---
 Question: |
   Relationship or Association
 subquestion: |  
-  Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
+  Do you feel that you have been treated differently because of your relationship or association with a person who has a disability?
 fields:
   - no label: relationship_with
-    datatype: yesnoradio
+    choices: 
+    - Yes
+    - No
 ---
 question: |
   ### This form is for ***disability discrimination***. 
@@ -60,14 +64,14 @@ fields:
 question: |
   What is you relationship or association to the person with the disability?
 fields:
-  - Please select which of the following applies to you: JIWrelo_or_association
+  - no label: JIWrelo_or_association
     datatype: radio
     choices:
     - Friend
     - Partner 
     - Family member 
     - Other
-  - Other: other_disability
+  - Please specify: other_disability
     show if:
       variable: JIWrelo_or_association
       is: Other

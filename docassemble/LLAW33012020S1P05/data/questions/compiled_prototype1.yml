@@ -1,3 +1,140 @@
+# This is the main file for the Disability Discrimination Report Form.  It drives the logic flow.
+---
+# Metadata about the app
+metadata:
+  title: |
+    Ensuring Equality: Disability Discrimination Report Form
+  short title: |
+    Disability Discrimination Report Form
+  authors:
+    - name: Julia Weltner
+    - name: Casey Moffatt
+    - name: Lucy Schapel
+    - name: Nakisa Hashemi
+  organisation:  Flinders University
+  revision_date: 2020-06-3
+---
+sections:
+  - Welcome: Welcome
+  - Disclaimer: Disclaimer
+  - Personal Infromation: Personal Infromation
+  - Disability Status: Disability Status
+  - Incident Information: Incident Information
+  - Desired Outcome: Desired Outcome
+  - Summary: Summary
+---
+event: Personal Infromation
+section: Personal Infromation
+question: |
+  Review Personal Infromation
+review:
+  - Edit answer: JIWperson_filling_in_form
+    button: |
+      Are you filling in this form for yourself or someone else?: *${ JIWperson_filling_in_form }*
+  - Edit answer: JIWfirstname
+    button: |
+      Name: *${ JIWfirstname }* *${ JIWlastname }*
+  - Edit answer: JIWemail
+    button: |
+      E-mail: *${ JIWemail }*
+  - Edit answer: JIWmobile
+    button: |
+      Phone number: *${ JIWmobile }*
+  - Edit answer: JIWaddress
+    button: |
+      Residential address: *${ JIWaddress }*
+  - Edit answer: JIWdis_stat
+    button: |
+      Disability status: *${ JIWdis_stat }*
+# line break
+  - Edit answer: JIWfirstname1
+    button: |
+      Name: *${ JIWfirstname1 }* *${ JIWlastname1 }*
+  - Edit answer: JIWemail1
+    button: |
+      E-mail: *${ JIWemail1 }*
+  - Edit answer: JIWmobile1
+    button: |
+      Phone number: *${ JIWmobile1 }*
+  - Edit answer: JIWaddress1
+    button: |
+      Residential address: *${ JIWaddress1 }*
+  - Edit answer: personal_disability
+    button: |
+      Do you have a disability yourself?: *${ personal_disability }*
+---
+event: Disability Status
+section: Disability Status
+question: |
+  Review Disability Infromation
+review:
+  - Edit answer: JIWdisability
+    button: |
+      Nature of disability: *${ JIWexplanation_future }*
+  - Edit answer: JIWexplanation_future
+    button: |
+      Future disability: *${ JIWexplanation_future }*
+  - Edit answer: JIWexplanation_people_think
+    button: |
+      Disability people think I have: *${ JIWexplanation_people_think }*
+  - Edit answer: relationship_with
+    button: |
+      Do people treat you differently because you have a relationship with a disabled person?: *${ relationship_with }*
+  - Edit answer: JIWapplicable
+    button: |
+      This form applies to me because...: *${ JIWapplicable }*
+  - Edit answer: JIWrelo_or_association
+    button: |
+      What is your relationship with the disabled person?: *${ JIWrelo_or_association }*
+---
+event: Incident Information
+section: Incident Information
+question: |
+  Review Incident Infromation
+review:
+  - Edit answer: EQLdate
+    button: |
+      Date of incident: *${ EQLdate }* *${ EQLidkwhen1 }*
+  - Edit answer: EQLwhere
+    button: |
+      Where did this happen?: *${ EQLwhere }*
+  - Edit answer: EQLwho
+    button: |
+      Who was there?: *${ EQLwho }*
+  - Edit answer: EQLwhat
+    button: |
+      What happened?: *${ EQLwhat }*
+  - Edit answer: EQLimpact
+    button: |
+      How were you affected?: *${ EQLimpact }*
+  - Edit answer: EQLanimal
+    button: |
+      Was a service animal involved?: *${ EQLanimal }*
+  - Edit answer: EQLevidence
+    button: |
+      Do you have any supporting evidence?: *${ EQLevidence }*
+---
+event: Desired Outcome
+section: Desired Outcome
+question: |
+  Review Desired Outcome Infromation
+review:
+  - Edit answer: EQLoutcome
+    button: |
+      *Desired outcome:* ${ EQLoutcome }
+---
+features:
+  css: prototype.css
+  debug: True
+  hide standard menu: False
+  navigation: True
+---
+objects:
+  - JIWlogo: DAStaticFile.using(filename='EQL.logo.png')
+---
+mandatory: True
+code: |
+  set_parts(logo='<img src="' + JIWlogo.url_for() + '" style="height: 50px;">')
 ---
 objects:
   - endpoint: DADict
@@ -6,6 +143,7 @@ include:
   - personal_info_questions.yml
   - disability_questions.yml
   - incident_questions.yml
+  - desired_outcome_questions.yml
 ---
 # welcome screen.
 mandatory: True
@@ -17,7 +155,7 @@ subquestion: |
   
    It is common for people who have been treated unfavourably because of their disability to be unsure as to whether their situation amounts to discrimination before the law. This reporting form will seek to clarify this uncertainty and connect individuals with Equality Lawyers' advice.
   
-  In accordance with the State and National laws designed to protect those with disabilities from unfair treatment, the *Ensuring Equality: Discrimination Reporting Form* will ask users a set of questions to determine whether an incident of disability discrimination has occurred and hopefully provide a variety of options for resolution. This may be as simple as a conversation with a local business or a reform of current policy.
+  In accordance with the State and National laws designed to protect those with disabilities from unfair treatment, the *Ensuring Equality: Discrimination Reporting Form* will ask users a set of questions to determine whether an incident of disability discrimination has occurred, and provide a variety of options for resolution. 
   
   If you wish to access additional information regarding disability discrimination or other disability focused legal issues visit our [services page](https://www.equalitylawyers.com.au/services).
   
@@ -26,6 +164,7 @@ buttons:
   - "Continue": continue
   - "Return to Home Page": exit
     url: https://www.equalitylawyers.com.au/
+section: Welcome
 ---
 # Disclaimer Screen 
 mandatory: True 
@@ -36,22 +175,22 @@ subquestion: |
    
    It is important that users of the *Ensuring Equality: Discrimination Reporting Form* do not misconstrue any generated information or data as legal advice provided by Equality Lawyers. Accordingly, the use of the *Ensuring Equality: Discrimination Reporting Form* does not automatically engage the legal services of Equality Lawyers. This form is simply a tool to assist Equality Lawyers in determining whether a situation amounts to a breach of the *Disability Discrimination Act 1992 (Cth)* and other State based Acts. 
    
-   Upon completion, any information provided by users will be recorded and stored in accordance with Equality Lawyer's privacy policy (below) and the *Privacy Act 1988 (Cth)*. Users will be able to view and download their reponses in PDF document format. This document will also be forwarded to Equality Lawyers. Whether Equality Lawyers decides to contact users and provide follow-up legal advice regarding the documented information is of the discretion of Equality Lawyers.  
+   Upon completion, any information provided by users will be recorded and stored in accordance with Equality Lawyer's privacy policy (below) and the *Privacy Act 1988 (Cth)*. Users will be able to view and download their reponses in PDF document format. This document will also be forwarded to Equality Lawyers, provided you elect this option. Whether Equality Lawyers decides to contact users and provide follow-up legal advice regarding the documented information is of the discretion of Equality Lawyers.  
    
    ***NEED TO INSERT NATALIE'S PRIVACY POLICY HERE***
    
-   Do you accept these terms and want to proceed? 
+   Do you accept these terms? 
 buttons:
-  - "I accept and wish to continue": continue
-  - "I do not accept": exit
+  - Yes: continue
+  - No: exit
     url: https://www.equalitylawyers.com.au/
+section: Disclaimer
 ---
 # Collects personal information
 mandatory: True
 code: |
   JIWperson_filling_in_form
   JIWfirstname
-  JIWdate_of_birth
   JIWemail
   if JIWperson_filling_in_form == 'Someone else':
     JIWrelation
@@ -59,17 +198,16 @@ code: |
       JIWdisability
     JIWcontinue_screen
     JIWfirstname1
-    JIWdate_of_birth1
     JIWemail1
 ---
 # Collects information about Disability
 mandatory: true
 code: |
-  if ( JIWdisabilitystatus == 'I have a disability' ) or ( JIWdisabilitystatus == 'I have had a disability in the past' ):
+  if ( JIWdis_stat == 'I have a disability' ) or ( JIWdis_stat == 'I have had a disability in the past' ):
     JIWdisability
-  elif JIWdisabilitystatus == 'I may develop a disability in the future':
+  elif JIWdis_stat == 'I may develop a disability in the future':
     JIWexplanation_future
-  elif JIWdisabilitystatus == 'People think I have a disability':
+  elif JIWdis_stat == 'People think I have a disability':
     JIWexplanation_people_think
   else:
     if relationship_with:
@@ -102,25 +240,3 @@ subquestion: |
   We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.
 continue button field: event_1_continue
 ---
-Question: |
-  Desired Outcome
-subquestion: |
-  What is your desired outcome moving forward?
-fields:
-  - Please select: EQLoutcome
-    choices:
-      - I would like compensation
-      - I would like to see policy change
-      - I would like an apology
-      - I am not sure 
-      - Other
-  - Please specify: EQLoutcome
-    show if:
-      variable: EQLoutcome
-      is: Other
----
-question: |
-  Desired Outcome Information Completed
-subquestion: |
-  Thank you for filling out this section of the form. You will now be displayed with a summary of the infromation you uahve provided. 
-continue button field: EQL_desired_outcome_complete
