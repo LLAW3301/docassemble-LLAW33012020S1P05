@@ -55,6 +55,7 @@ question: |
   Do you have a disability yourself?
 fields:
   - no label: personal_disability
+    datatype: radio
     choices: 
     - Yes
     - No

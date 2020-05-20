@@ -1,18 +1,7 @@
 ---
 question: |
-  Incident Information
-subquestion: |
-  You will now be asked questions about the incident or events you are reporting.
-  
-  When you are ready to begin, press **Continue**.
-continue button field: user_saw_intro 
-section: Incident Information
----
-question: |
   When did the incident happen? An approximate date is sufficient.
 fields:
-  - note: |
-      If you do not remember the date, or an approximate date, please select **I do not know**.
   - no label: EQLdate
     datatype: date
     required: false
@@ -21,11 +10,16 @@ fields:
     choices:
       - I do not know
     required: false
+  - Other: EQLother_when
+    input type: area
+    help: |
+      If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify here. 
+    required: false
 ---
 question: |
   Where did this happen?
 fields: 
-  - Please choose: EQLwhere
+  - no label: EQLwhere
     datatype: radio
     choices:
     - Home 
@@ -52,16 +46,6 @@ fields:
     input type: area
   - How have you been affected or impacted?: EQLimpact
     input type: area
-  - Was there an assistance or service animal involved?: EQLanimal
-    datatype: radio
-    choices:
-     - Yes
-     - No
-    required: false
-  - Please specify: EQLanimal
-    show if:
-      variable: EQLanimal
-      is: Yes
   - Do you have any evidence to support your claim?: EQLevidence
     datatype: radio
     choices:
@@ -72,6 +56,28 @@ fields:
     show if:
       variable: EQLevidence
       is: Yes
+---
+Question: |
+  Was there an assistance or service animal involved?
+fields:  
+  - no label: EQLanimal
+    datatype: radio
+    choices:
+    - Yes
+    - No 
+---
+Question: |
+  Do any of the following apply?
+fields: 
+  - no label: EQLdo_they_apply
+    datatype: radio 
+    choices: 
+    - I was asked or required to keep the animal under my control
+    - The discriminator had reasonable suspicion that the animal had an infectious disease 
+    - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
+    - I provided them with said evidence (if above applies)
+    - None apply 
+    required: false
 ---
 question: |
   Incident Questions Completed

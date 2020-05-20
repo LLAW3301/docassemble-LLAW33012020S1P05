@@ -20,23 +20,22 @@ fields:
 section: Disability Status
 ---
 question: |
-  You selected 'I may develop a disability in the future'.
+  You selected 'I may develop a disability in the future'. Please specify.
 fields: 
-  - Please specify: JIWexplanation_future
+  - no label: JIWexplanation_future
     input type: area
 ---
 question: |
-  You selected 'People think I have a disability'.
+  You selected 'People think I have a disability'. Please specify.
 fields: 
-  - Please specify: JIWexplanation_people_think
+  - no label: JIWexplanation_people_think
     input type: area
 ---
 Question: |
-  Relationship or Association
-subquestion: |  
   Do you feel that you have been treated differently because of your relationship or association with a person who has a disability?
 fields:
   - no label: relationship_with
+    datatype: radio
     choices: 
     - Yes
     - No
