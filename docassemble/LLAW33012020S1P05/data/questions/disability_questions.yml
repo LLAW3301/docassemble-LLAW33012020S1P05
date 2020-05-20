@@ -1,6 +1,6 @@
 ---
 question: |
-  What is the nature of the disability?
+  What is the nature of your disability?
 fields:
   - no label: JIWdisability
     datatype: radio
@@ -11,6 +11,7 @@ fields:
     - Neurological
     - Cognitive
     - Intellectual
+    - I prefer not to say
     - Other
   - Please specify: other_disability
     show if:
@@ -19,29 +20,30 @@ fields:
 section: Disability Status
 ---
 question: |
-  Why may you develop a disability in the future? What disability?
+  You selected 'I may develop a disability in the future'. Please specify.
 fields: 
-  - Please specify: JIWexplanation_future
+  - no label: JIWexplanation_future
     input type: area
 ---
 question: |
-  Why do people think you have a disability? What disability?
+  You selected 'People think I have a disability'. Please specify.
 fields: 
-  - Please specify: JIWexplanation_people_think
+  - no label: JIWexplanation_people_think
     input type: area
 ---
 Question: |
-  Relationship or Association
-subquestion: |  
-  Do you feel that you have been treated differently on the basis of a relationship or association with a person with a disability?
+  Do you feel that you have been treated differently because of your relationship or association with a person who has a disability?
 fields:
   - no label: relationship_with
-    datatype: yesnoradio
+    datatype: radio
+    choices: 
+    - Yes
+    - No
 ---
 question: |
   ### This form is for ***disability discrimination***. 
   
-  ######If you still believe this form is applicable to you, please press **Continue**.
+  #####If you still believe this form is applicable to you, please press **Continue**.
   
   Pressing **Exit** will direct you back to the Equality Lawyers Website, and you will lose all progress so far.
 continue button field: JIWwishes_to_continue
@@ -54,7 +56,7 @@ action buttons:
 question: |
   Briefly describe why you feel this form is applicable to you
 fields:
-  - This form is applicable to me because...: JIWapplicable
+  - no label: JIWapplicable
     input type: area
 ---
 # event 4 endpoint

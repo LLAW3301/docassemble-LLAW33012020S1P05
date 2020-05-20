@@ -5,14 +5,31 @@ fields:
   - no label: EQLoutcome
     datatype: radio
     choices:
-      - I would like to speak with a lawyer
-      - I would like some advice
-      - I would like to know my options
+      - I would like to speak with a lawyer to discuss my options
+      - I would like to make a complaint
       - I am not sure 
       - Other
   - Please specify: EQLoutcome
     show if:
       variable: EQLoutcome
+      is: Other
+section: Desired Outcome
+---
+Question: |
+  What is your desired outcome? 
+fields: 
+  - no label: EQLoutcome1
+    datatype: radio 
+    choices:
+      - Compensation 
+      - Policy change
+      - An apology
+      - Rectification of the discriminatory act 
+      - I do not know
+      - Other
+  - Please specify: EQLoutcome1
+    show if:
+      variable: EQLoutcome1
       is: Other
 section: Desired Outcome
 ---

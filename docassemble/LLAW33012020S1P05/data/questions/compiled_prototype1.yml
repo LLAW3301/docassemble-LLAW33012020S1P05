@@ -17,20 +17,20 @@ metadata:
 sections:
   - Welcome: Welcome
   - Disclaimer: Disclaimer
-  - Personal Infromation: Personal Infromation
+  - Personal Information: Personal Information
   - Disability Status: Disability Status
   - Incident Information: Incident Information
   - Desired Outcome: Desired Outcome
   - Summary: Summary
 ---
-event: Personal Infromation
-section: Personal Infromation
+event: Personal Information
+section: Personal Information
 question: |
-  Review Personal Infromation
+  Review Personal Information
 review:
   - Edit answer: JIWperson_filling_in_form
     button: |
-      Person filling in form: *${ JIWperson_filling_in_form }*
+      Are you filling in this form for yourself or someone else?: *${ JIWperson_filling_in_form }*
   - Edit answer: JIWfirstname
     button: |
       Name: *${ JIWfirstname }* *${ JIWlastname }*
@@ -46,6 +46,22 @@ review:
   - Edit answer: JIWdis_stat
     button: |
       Disability status: *${ JIWdis_stat }*
+# line break
+  - Edit answer: JIWfirstname1
+    button: |
+      Name: *${ JIWfirstname1 }* *${ JIWlastname1 }*
+  - Edit answer: JIWemail1
+    button: |
+      E-mail: *${ JIWemail1 }*
+  - Edit answer: JIWmobile1
+    button: |
+      Phone number: *${ JIWmobile1 }*
+  - Edit answer: JIWaddress1
+    button: |
+      Residential address: *${ JIWaddress1 }*
+  - Edit answer: personal_disability
+    button: |
+      Do you have a disability yourself?: *${ personal_disability }*
 ---
 event: Disability Status
 section: Disability Status
@@ -54,12 +70,27 @@ question: |
 review:
   - Edit answer: JIWdisability
     button: |
-      Nature of disability: *${ JIWdisability }*
+      Nature of disability: *${ JIWexplanation_future }*
+  - Edit answer: JIWexplanation_future
+    button: |
+      Future disability: *${ JIWexplanation_future }*
+  - Edit answer: JIWexplanation_people_think
+    button: |
+      Disability people think I have: *${ JIWexplanation_people_think }*
+  - Edit answer: relationship_with
+    button: |
+      Do people treat you differently because you have a relationship with a disabled person?: *${ relationship_with }*
+  - Edit answer: JIWapplicable
+    button: |
+      This form applies to me because...: *${ JIWapplicable }*
+  - Edit answer: JIWrelo_or_association
+    button: |
+      What is your relationship with the disabled person?: *${ JIWrelo_or_association }*
 ---
 event: Incident Information
 section: Incident Information
 question: |
-  Review Incident Infromation
+  Review Incident Information
 review:
   - Edit answer: EQLdate
     button: |
@@ -86,7 +117,7 @@ review:
 event: Desired Outcome
 section: Desired Outcome
 question: |
-  Review Desired Outcome Infromation
+  Review Desired Outcome Information
 review:
   - Edit answer: EQLoutcome
     button: |
@@ -179,33 +210,26 @@ code: |
   elif JIWdis_stat == 'People think I have a disability':
     JIWexplanation_people_think
   else:
-    if relationship_with:
-      JIWrelo_or_association
+    if relationship_with == 'Yes':
+      JIWrelo_or_association 
     else:
       JIWwishes_to_continue
       JIWapplicable
-  # We always run this
-  event_1_continue
 ---
 # Collects information about the incident
 mandatory: True
 code: |
-  user_saw_intro
   EQLdate
   EQLwhere
   EQLwho
-  EQL_incident_questions_completed
+  EQLanimal
+  if EQLanimal == 'Yes':
+    EQLdo_they_apply
 ---
 # Collects information about the desired outcome
 mandatory: True
 code: | 
   EQLoutcome
-  EQL_desired_outcome_complete
----
-# Completion of personal information questions
-question: |
-  Personal Information Questions Completed 
-subquestion: |
-  We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.
-continue button field: event_1_continue
+  if EQLoutcome == 'I would like to make a complaint':
+    EQLoutcome1
 ---

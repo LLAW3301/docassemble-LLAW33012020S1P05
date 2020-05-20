@@ -1,13 +1,13 @@
 ---
 Question: |
-  Are you filling out this form for yourself or somenoe else?
+  Are you filling out this form for yourself or someone else?
 fields:
   - no label: JIWperson_filling_in_form
     datatype: radio
     choices:
     - Myself
     - Someone else
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   What is your name?
@@ -15,7 +15,7 @@ fields:
   - First Name: JIWfirstname
   - Last Name: JIWlastname
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Contact details
@@ -33,10 +33,10 @@ fields:
     datatype: area
     hint: e.g., 123 First Street, Adelaide, South Australia, 5000
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
-  What is your relationship with the effected person?
+  What is your relationship with the affected person?
 fields:
   - no label: JIWrelation
     datatype: radio
@@ -52,8 +52,13 @@ fields:
       is: Other
 ---
 question: |
-  Do you have a disability yourslef?
-yesno: personal_disability
+  Do you have a disability yourself?
+fields:
+  - no label: personal_disability
+    datatype: radio
+    choices: 
+    - Yes
+    - No
 ---
 question: |
   What is the nature of your disability?
@@ -67,6 +72,7 @@ fields:
     - Neurological
     - Cognitive
     - Intellectual
+    - I prefer not to say
     - Other
   - Please specify: other_disability
     show if:
@@ -102,7 +108,7 @@ fields:
     required: false
 ---
 question: |
-  Please select the statement that best reflects your disability?
+  Which of the following applies to you? 
 fields:
   - no label: JIWdis_stat
     datatype: radio
