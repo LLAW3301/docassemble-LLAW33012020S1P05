@@ -17,7 +17,7 @@ metadata:
 sections:
   - Welcome: Welcome
   - Disclaimer: Disclaimer
-  - Personal Infromation: Personal Infromation
+  - Personal Information: Personal Information
   - Disability Status: Disability Status
   - Incident Information: Incident Information
   - Desired Outcome: Desired Outcome
@@ -231,6 +231,8 @@ code: |
 mandatory: True
 code: | 
   EQLoutcome
+  if EQLoutcome == 'I would like to make a complaint':
+    EQLoutcome1
   EQL_desired_outcome_complete
 ---
 # Completion of personal information questions

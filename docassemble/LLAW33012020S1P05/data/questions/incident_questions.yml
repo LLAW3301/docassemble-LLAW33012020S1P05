@@ -9,7 +9,7 @@ continue button field: user_saw_intro
 section: Incident Information
 ---
 question: |
-  What date the incident or events happen? (or the approximate date)
+  When did the incident happen? An approximate date is sufficient.
 fields:
   - note: |
       If you do not remember the date, or an approximate date, please select **I do not know**.
@@ -50,7 +50,7 @@ fields:
     input type: area
   - What happened?: EQLwhat
     input type: area
-  - How have you been effected?: EQLimpact
+  - How have you been affected or impacted?: EQLimpact
     input type: area
   - Was there an assistance or service animal involved?: EQLanimal
     datatype: radio
@@ -68,8 +68,10 @@ fields:
      - Yes
      - No
     required: false
-  - note: |
-      If you *do* have evidence for your claim you will be able to discus this with Equality Lawyers if you choose to be contacted by them.
+  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.
+    show if:
+      variable: EQLevidence
+      is: Yes
 ---
 question: |
   Incident Questions Completed
