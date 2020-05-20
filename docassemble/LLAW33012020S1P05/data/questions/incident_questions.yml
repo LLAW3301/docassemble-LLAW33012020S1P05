@@ -6,39 +6,34 @@ subquestion: |
   
   When you are ready to begin, press **Continue**.
 continue button field: user_saw_intro 
+section: Incident Information
 ---
 question: |
-  When did the incident or events happen?
+  What date the incident or events happen? (or the approximate date)
 fields:
-  - Date: EQLdate
+  - note: |
+      If you do not remember the date, or an approximate date, please select **I do not know**.
+  - no label: EQLdate
     datatype: date
     required: false
-  - I do not remember: EQLidkwhen1
+  - no label: EQLidkwhen1
     input type: radio
     choices:
-      - I do not remember
-    required: false
-  - Time: EQLtime
-    datatype: time
-    required: false
-  - I do not remember: EQLidkwhen2
-    input type: radio
-    choices:
-      - I do not remember
+      - I do not know
     required: false
 ---
 question: |
   Where did this happen?
 fields: 
   - Please choose: EQLwhere
+    datatype: radio
     choices:
     - Home 
     - Work or other employment
-    - School/University/TAFE/Other education facility
+    - School / University /TAFE / Other education facility
     - Public transport
     - Restaurant or cafe
-    - Public setting
-    - Sporting or recreational actiivity
+    - Sporting or recreational activity
     - Accessing goods or services
     - Shopping centre or mall
     - I do not remember
@@ -51,25 +46,30 @@ fields:
 question: |
   Who was there? What happened?
 fields:
-  - Please tell us who was involved, this includes any witnesses: EQLwho
+  - Who was involved?: EQLwho
     input type: area
-  - Please tell us what happened, be as specific as possible: EQLwhat
+  - What happened?: EQLwhat
     input type: area
-  - Was there an assistance or service animal involved in this incident?: EQLanimal
+  - How have you been effected?: EQLimpact
+    input type: area
+  - Was there an assistance or service animal involved?: EQLanimal
+    datatype: radio
     choices:
-     - Yes, someone asked for the animal to be controlled.
-     - Yes, someone suspected the animal was unhygineic or had a disease.
-     - Yes, someone asked if the animal is properly trained.
-     - Yes, but they asked or suspected something else.
-     - No, an animal was not involved.
+     - Yes
+     - No
+    required: false
   - Please specify: EQLanimal
     show if:
       variable: EQLanimal
-      is: Yes, but they asked or suspected something else.
-  - Do you have any evidence that could be used to support your claim? This could be photo, video or audio etc.: EQLevidence
+      is: Yes
+  - Do you have any evidence to support your claim?: EQLevidence
+    datatype: radio
     choices:
-    - Yes
-    - No
+     - Yes
+     - No
+    required: false
+  - note: |
+      If you *do* have evidence for your claim you will be able to discus this with Equality Lawyers if you choose to be contacted by them.
 ---
 question: |
   Incident Questions Completed
@@ -81,4 +81,3 @@ subquestion: |
   When you are ready to continue, press the button below.
 continue button field: EQL_incident_questions_completed
 ---
- 
