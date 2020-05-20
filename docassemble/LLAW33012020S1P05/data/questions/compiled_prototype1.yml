@@ -14,19 +14,96 @@ metadata:
   organisation:  Flinders University
   revision_date: 2020-06-3
 ---
+sections:
+  - Welcome: Welcome
+  - Disclaimer: Disclaimer
+  - Personal Infromation: Personal Infromation
+  - Disability Status: Disability Status
+  - Incident Information: Incident Information
+  - Desired Outcome: Desired Outcome
+  - Summary: Summary
+---
+event: Personal Infromation
+section: Personal Infromation
+question: |
+  Review Personal Infromation
+review:
+  - Edit answer: JIWperson_filling_in_form
+    button: |
+      Person filling in form: *${ JIWperson_filling_in_form }*
+  - Edit answer: JIWfirstname
+    button: |
+      Name: *${ JIWfirstname }* *${ JIWlastname }*
+  - Edit answer: JIWemail
+    button: |
+      E-mail: *${ JIWemail }*
+  - Edit answer: JIWmobile
+    button: |
+      Phone number: *${ JIWmobile }*
+  - Edit answer: JIWaddress
+    button: |
+      Residential address: *${ JIWaddress }*
+  - Edit answer: JIWdis_stat
+    button: |
+      Disability status: *${ JIWdis_stat }*
+---
+event: Disability Status
+section: Disability Status
+question: |
+  Review Disability Infromation
+review:
+  - Edit answer: JIWdisability
+    button: |
+      Nature of disability: *${ JIWdisability }*
+---
+event: Incident Information
+section: Incident Information
+question: |
+  Review Incident Infromation
+review:
+  - Edit answer: EQLdate
+    button: |
+      Date of incident: *${ EQLdate }* *${ EQLidkwhen1 }*
+  - Edit answer: EQLwhere
+    button: |
+      Where did this happen?: *${ EQLwhere }*
+  - Edit answer: EQLwho
+    button: |
+      Who was there?: *${ EQLwho }*
+  - Edit answer: EQLwhat
+    button: |
+      What happened?: *${ EQLwhat }*
+  - Edit answer: EQLimpact
+    button: |
+      How were you affected?: *${ EQLimpact }*
+  - Edit answer: EQLanimal
+    button: |
+      Was a service animal involved?: *${ EQLanimal }*
+  - Edit answer: EQLevidence
+    button: |
+      Do you have any supporting evidence?: *${ EQLevidence }*
+---
+event: Desired Outcome
+section: Desired Outcome
+question: |
+  Review Desired Outcome Infromation
+review:
+  - Edit answer: EQLoutcome
+    button: |
+      *Desired outcome:* ${ EQLoutcome }
+---
+features:
+  css: prototype.css
+  debug: True
+  hide standard menu: False
+  navigation: True
+---
 objects:
   - JIWlogo: DAStaticFile.using(filename='EQL.logo.png')
 ---
 mandatory: True
 code: |
   set_parts(logo='<img src="' + JIWlogo.url_for() + '" style="height: 50px;">')
----
-features:
-  css: prototype.css
-  debug: True
-  hide standard menu: False
-  progress bar: True
-  show progress bar percentage: True
 ---
 objects:
   - endpoint: DADict
@@ -56,6 +133,7 @@ buttons:
   - "Continue": continue
   - "Return to Home Page": exit
     url: https://www.equalitylawyers.com.au/
+section: Welcome
 ---
 # Disclaimer Screen 
 mandatory: True 
@@ -70,18 +148,18 @@ subquestion: |
    
    ***NEED TO INSERT NATALIE'S PRIVACY POLICY HERE***
    
-   Do you accept these terms and want to proceed? 
+   Do you accept these terms? 
 buttons:
-  - "I accept and wish to continue": continue
-  - "I do not accept": exit
+  - Yes: continue
+  - No: exit
     url: https://www.equalitylawyers.com.au/
+section: Disclaimer
 ---
 # Collects personal information
 mandatory: True
 code: |
   JIWperson_filling_in_form
   JIWfirstname
-  JIWdate_of_birth
   JIWemail
   if JIWperson_filling_in_form == 'Someone else':
     JIWrelation
@@ -89,17 +167,16 @@ code: |
       JIWdisability
     JIWcontinue_screen
     JIWfirstname1
-    JIWdate_of_birth1
     JIWemail1
 ---
 # Collects information about Disability
 mandatory: true
 code: |
-  if ( JIWdisabilitystatus == 'I have a disability' ) or ( JIWdisabilitystatus == 'I have had a disability in the past' ):
+  if ( JIWdis_stat == 'I have a disability' ) or ( JIWdis_stat == 'I have had a disability in the past' ):
     JIWdisability
-  elif JIWdisabilitystatus == 'I may develop a disability in the future':
+  elif JIWdis_stat == 'I may develop a disability in the future':
     JIWexplanation_future
-  elif JIWdisabilitystatus == 'People think I have a disability':
+  elif JIWdis_stat == 'People think I have a disability':
     JIWexplanation_people_think
   else:
     if relationship_with:
@@ -132,25 +209,3 @@ subquestion: |
   We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.
 continue button field: event_1_continue
 ---
-Question: |
-  Desired Outcome
-subquestion: |
-  What is your desired outcome moving forward?
-fields:
-  - Please select: EQLoutcome
-    choices:
-      - I would like compensation
-      - I would like to see policy change
-      - I would like an apology
-      - I am not sure 
-      - Other
-  - Please specify: EQLoutcome
-    show if:
-      variable: EQLoutcome
-      is: Other
----
-question: |
-  Desired Outcome Information Completed
-subquestion: |
-  Thank you for filling out this section of the form. You will now be displayed with a summary of the information you have provided. 
-continue button field: EQL_desired_outcome_complete

@@ -1,20 +1,20 @@
 ---
 Question: |
-  Desired Outcome
-subquestion: |
-  What is your desired outcome moving forward?
+  What would you like to see happen once filling out this form?
 fields:
-  - Please select: EQLoutcome
+  - no label: EQLoutcome
+    datatype: radio
     choices:
-      - I would like compensation
-      - I would like to see policy change
-      - I would like an apology
+      - I would like to speak with a lawyer
+      - I would like some advice
+      - I would like to know my options
       - I am not sure 
       - Other
   - Please specify: EQLoutcome
     show if:
       variable: EQLoutcome
       is: Other
+section: Desired Outcome
 ---
 question: |
   Desired Outcome Information Completed
