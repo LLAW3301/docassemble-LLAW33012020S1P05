@@ -43,9 +43,9 @@ review:
   - Edit answer: JIWaddress
     button: |
       Residential address: *${ JIWaddress }*
-  - Edit answer: JIWdis_stat
+  - Edit answer: personal_disability
     button: |
-      Disability status: *${ JIWdis_stat }*
+      Do you have a disability yourself?: *${ personal_disability }*
 # line break
   - Edit answer: JIWfirstname1
     button: |
@@ -59,9 +59,9 @@ review:
   - Edit answer: JIWaddress1
     button: |
       Residential address: *${ JIWaddress1 }*
-  - Edit answer: personal_disability
+  - Edit answer: JIWdis_stat
     button: |
-      Do you have a disability yourself?: *${ personal_disability }*
+      Disability status: *${ JIWdis_stat }*
 ---
 event: Disability Status
 section: Disability Status
@@ -194,7 +194,7 @@ code: |
   JIWemail
   if JIWperson_filling_in_form == 'Someone else':
     JIWrelation
-    if personal_disability:
+    if personal_disability == 'Yes':
       JIWdisability
     JIWcontinue_screen
     JIWfirstname1
