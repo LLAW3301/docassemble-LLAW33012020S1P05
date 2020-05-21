@@ -10,7 +10,7 @@ fields:
     choices:
       - I do not know
     required: false
-  - Other: EQLother_when
+  - Other: EQLdate_other
     input type: area
     help: |
       If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify here. 
@@ -42,10 +42,29 @@ question: |
 fields:
   - Who was involved?: EQLwho
     input type: area
+  - Was there an assistance or service animal involved?: EQLanimal
+    datatype: radio
+    choices:
+      - Yes
+      - No 
+    required: false
+  - Do any of the following apply?: EQLdo_they_apply
+    datatype: radio
+    choices: 
+    - I was asked or required to keep the animal under control
+    - The discriminator had reasonable suspicion that the animal had an infectious disease 
+    - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
+    - I provided them with said evidence (if above applies)
+    - None apply 
+    show if: 
+      variable: EQLanimal
+      is: Yes
+    required: false
   - What happened?: EQLwhat
     input type: area
   - How have you been affected or impacted?: EQLimpact
     input type: area
+    required: false
   - Do you have any evidence to support your claim?: EQLevidence
     datatype: radio
     choices:
@@ -56,28 +75,6 @@ fields:
     show if:
       variable: EQLevidence
       is: Yes
----
-Question: |
-  Was there an assistance or service animal involved?
-fields:  
-  - no label: EQLanimal
-    datatype: radio
-    choices:
-    - Yes
-    - No 
----
-Question: |
-  Do any of the following apply?
-fields: 
-  - no label: EQLdo_they_apply
-    datatype: radio 
-    choices: 
-    - I was asked or required to keep the animal under my control
-    - The discriminator had reasonable suspicion that the animal had an infectious disease 
-    - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
-    - I provided them with said evidence (if above applies)
-    - None apply 
-    required: false
 ---
 question: |
   Incident Questions Completed
