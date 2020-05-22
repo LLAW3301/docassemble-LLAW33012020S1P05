@@ -1,6 +1,6 @@
 ---
 question: |
-  When did the incident happen? An approximate date is sufficient.
+  Q1. When did the incident happen? An approximate date is sufficient.
 fields:
   - no label: EQLdate
     datatype: date
@@ -10,14 +10,14 @@ fields:
     choices:
       - I do not know
     required: false
-  - Other: EQLdate_other
+  - note: |
+      If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify below. 
+  - no label: EQLdate_other
     input type: area
-    help: |
-      If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify here. 
     required: false
 ---
 question: |
-  Where did this happen?
+  Q2. Where did this happen?
 fields: 
   - no label: EQLwhere
     datatype: radio
@@ -41,11 +41,11 @@ question: |
   Who was there? What happened?
 fields:
   - note: |
-      Who was  involved?
+      Q3. Who was  involved?
   - no label: EQLwho
     input type: area
   - note: |
-      Was there an assistance or service animal involved?
+      Q4. Was there an assistance or service animal involved?
   - no label: EQLanimal
     datatype: radio
     choices:
@@ -65,16 +65,16 @@ fields:
       is: Yes
     required: false
   - note: |
-      What happened?
+      Q5. What happened?
   - no label: EQLwhat
     input type: area
   - note: |
-      How have you been affected or impacted?    
+      Q6. How have you been affected or impacted?    
   - no label: EQLimpact
     input type: area
     required: false
   - note: |
-      Do you have any evidence to support your claim?  
+      Q7. Do you have any evidence to support your claim?  
   - no label: EQLevidence
     datatype: radio
     choices:
@@ -86,7 +86,7 @@ fields:
       variable: EQLevidence
       is: Yes
   - note: |
-      Have you made a complaint about this in the past?  
+      Q8. Have you made a complaint about this in the past?  
   - no label: EQLpast_complaint
     datatype: radio
     choices:

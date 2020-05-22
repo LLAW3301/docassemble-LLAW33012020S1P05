@@ -1,9 +1,7 @@
 ---
 question: |
-  Nearly done!
+  Would you like your answers to be sent to *Equlaity Lawyers* for review?
 subquestion: |
-  Would you like your answers to be sent to Equlaity Lawyers for review? 
-  
   By pressing **Yes**, you are agreeing to be contacted by Equality Lawyers to discuss your options.
 field: EQLsend
 buttons:
@@ -32,4 +30,15 @@ fields:
     - Between 9:00am and 12:00pm
     - Between 12:00pm and 3:00pm
     - Between 3:00pm and 5:00pm
+  - What is the best day to be contacted?: EQLday2contact
+    show if: 
+      variable: EQLcontact_me
+      is: Phone
+    datatype: radio
+    choices: 
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
 ---
