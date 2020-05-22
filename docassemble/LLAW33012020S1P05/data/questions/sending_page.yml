@@ -1,0 +1,36 @@
+---
+question: |
+  Nearly done!
+subquestion: |
+  Would you like your answers to be sent to Equality Lawyers for review? 
+  
+  By pressing **Yes**, you are agreeing to be contacted by Equality Lawyers to discuss your options.
+field: EQLsend
+buttons:
+  - Yes
+  - No
+---
+question: |
+  What is your preferred method of contact?
+fields: 
+  - no label: EQLcontact_me
+    datatype: radio
+    choices:
+    - Phone
+    - E-mail
+    - Other
+  - Please specify: EQLcontact_me
+    show if:
+      variable: EQLcontact_me
+      is: Other
+  - What is the best time for someone to contact you?: EQLcontact_time
+    show if: 
+      variable: EQLcontact_me
+      is: Phone
+    datatype: radio
+    choices: 
+    - No time preference
+    - Between 9:00am and 12:00pm
+    - Between 12:00pm and 3:00pm
+    - Between 3:00pm and 5:00pm
+---

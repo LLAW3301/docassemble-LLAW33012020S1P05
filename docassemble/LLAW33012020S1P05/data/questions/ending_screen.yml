@@ -1,0 +1,15 @@
+---
+question: |
+  All done!
+subquestion: |
+  ###*Thank you for filling out this form.*
+
+  The informatoin you have provided is available for you to download in PDF format below. 
+  
+  If you require any further informatin regarding disability discrimination you can visit the Equality Lawyers website below, or if you wish you can restart this form.
+
+buttons:
+  - Exit: EQLthanks
+    url: https://www.equalitylawyers.com.au/
+  - Restart: restart
+---
