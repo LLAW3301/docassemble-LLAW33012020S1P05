@@ -23,10 +23,10 @@ sections:
   - Desired Outcome: Desired Outcome
   - Summary: Summary
 ---
-event: Personal Infromation
-section: Personal Infromation
+event: Personal Information
+section: Personal Information
 question: |
-  Review Personal Infromation
+  Review Personal Information
 review:
   - Edit answer: JIWperson_filling_in_form
     button: |
@@ -43,9 +43,9 @@ review:
   - Edit answer: JIWaddress
     button: |
       Residential address: *${ JIWaddress }*
-  - Edit answer: JIWdis_stat
+  - Edit answer: personal_disability
     button: |
-      Disability status: *${ JIWdis_stat }*
+      Do you have a disability yourself?: *${ personal_disability }*
 # line break
   - Edit answer: JIWfirstname1
     button: |
@@ -59,9 +59,9 @@ review:
   - Edit answer: JIWaddress1
     button: |
       Residential address: *${ JIWaddress1 }*
-  - Edit answer: personal_disability
+  - Edit answer: JIWdis_stat
     button: |
-      Do you have a disability yourself?: *${ personal_disability }*
+      Disability status: *${ JIWdis_stat }*
 ---
 event: Disability Status
 section: Disability Status
@@ -90,7 +90,7 @@ review:
 event: Incident Information
 section: Incident Information
 question: |
-  Review Incident Infromation
+  Review Incident Information
 review:
   - Edit answer: EQLdate
     button: |
@@ -117,7 +117,7 @@ review:
 event: Desired Outcome
 section: Desired Outcome
 question: |
-  Review Desired Outcome Infromation
+  Review Desired Outcome Information
 review:
   - Edit answer: EQLoutcome
     button: |
@@ -144,6 +144,8 @@ include:
   - disability_questions.yml
   - incident_questions.yml
   - desired_outcome_questions.yml
+  - sending_page.yml
+  - ending_screen.yml
 ---
 # welcome screen.
 mandatory: True
@@ -194,7 +196,7 @@ code: |
   JIWemail
   if JIWperson_filling_in_form == 'Someone else':
     JIWrelation
-    if personal_disability:
+    if personal_disability == 'Yes':
       JIWdisability
     JIWcontinue_screen
     JIWfirstname1
@@ -210,22 +212,21 @@ code: |
   elif JIWdis_stat == 'People think I have a disability':
     JIWexplanation_people_think
   else:
-    if relationship_with:
-      JIWrelo_or_association
+    if relationship_with == 'Yes':
+      JIWrelo_or_association 
     else:
       JIWwishes_to_continue
       JIWapplicable
-  # We always run this
-  event_1_continue
 ---
 # Collects information about the incident
 mandatory: True
 code: |
-  user_saw_intro
   EQLdate
   EQLwhere
   EQLwho
-  EQL_incident_questions_completed
+  EQLanimal
+  if EQLanimal == 'Yes':
+    EQLdo_they_apply
 ---
 # Collects information about the desired outcome
 mandatory: True
@@ -233,12 +234,12 @@ code: |
   EQLoutcome
   if EQLoutcome == 'I would like to make a complaint':
     EQLoutcome1
-  EQL_desired_outcome_complete
 ---
-# Completion of personal information questions
-question: |
-  Personal Information Questions Completed 
-subquestion: |
-  We now have all of the personal information we need. We will now ask some questions about the incident or events which may be of potential discrimination.
-continue button field: event_1_continue
+# Sends user to sending page and the final screen
+mandatory: true
+code: |
+  if EQLsend == 'Yes':
+    EQLcontact_me
+  else:
+    EQLthanks
 ---
