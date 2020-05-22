@@ -144,6 +144,8 @@ include:
   - disability_questions.yml
   - incident_questions.yml
   - desired_outcome_questions.yml
+  - sending_page.yml
+  - ending_screen.yml
 ---
 # welcome screen.
 mandatory: True
@@ -232,4 +234,12 @@ code: |
   EQLoutcome
   if EQLoutcome == 'I would like to make a complaint':
     EQLoutcome1
+---
+# Sends user to sending page and the final screen
+mandatory: true
+code: |
+  if EQLsend == 'Yes':
+    EQLcontact_me
+  else:
+    EQLthanks
 ---

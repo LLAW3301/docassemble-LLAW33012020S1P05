@@ -40,9 +40,13 @@ fields:
 question: |
   Who was there? What happened?
 fields:
-  - Who was involved?: EQLwho
+  - note: |
+      Who was  involved?
+  - no label: EQLwho
     input type: area
-  - Was there an assistance or service animal involved?: EQLanimal
+  - note: |
+      Was there an assistance or service animal involved?
+  - no label: EQLanimal
     datatype: radio
     choices:
       - Yes
@@ -60,12 +64,18 @@ fields:
       variable: EQLanimal
       is: Yes
     required: false
-  - What happened?: EQLwhat
+  - note: |
+      What happened?
+  - no label: EQLwhat
     input type: area
-  - How have you been affected or impacted?: EQLimpact
+  - note: |
+      How have you been affected or impacted?    
+  - no label: EQLimpact
     input type: area
     required: false
-  - Do you have any evidence to support your claim?: EQLevidence
+  - note: |
+      Do you have any evidence to support your claim?  
+  - no label: EQLevidence
     datatype: radio
     choices:
      - Yes
@@ -74,6 +84,18 @@ fields:
   - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.
     show if:
       variable: EQLevidence
+      is: Yes
+  - note: |
+      Have you made a complaint about this in the past?  
+  - no label: EQLpast_complaint
+    datatype: radio
+    choices:
+      - Yes
+      - No 
+  - Who have you made this complaint to?: EQLpast_complaint
+    datatype: area
+    show if:
+      variable: EQLpast_complaint
       is: Yes
 ---
 question: |
