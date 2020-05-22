@@ -17,7 +17,7 @@ fields:
     datatype: radio
     choices:
     - Phone
-    - Emal
+    - Email
     - Other
   - Please specify: EQLcontact_me
     show if:
