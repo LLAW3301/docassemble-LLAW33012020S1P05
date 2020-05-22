@@ -240,6 +240,7 @@ mandatory: true
 code: |
   if EQLsend == 'Yes':
     EQLcontact_me
+    EQLending
   else:
-    EQLthanks
+    EQLending
 ---
