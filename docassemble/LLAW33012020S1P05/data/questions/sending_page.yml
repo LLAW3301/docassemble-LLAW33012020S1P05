@@ -2,7 +2,7 @@
 question: |
   Nearly done!
 subquestion: |
-  Would you like your answers to be sent to Equlaity Lawyers for review? 
+  Would you like your answers to be sent to Equality Lawyers for review? 
   
   By pressing **Yes**, you are agreeing to be contacted by Equality Lawyers to discuss your options.
 field: EQLsend
@@ -17,7 +17,7 @@ fields:
     datatype: radio
     choices:
     - Phone
-    - Emal
+    - E-mail
     - Other
   - Please specify: EQLcontact_me
     show if:
@@ -28,7 +28,8 @@ fields:
       variable: EQLcontact_me
       is: Phone
     datatype: radio
-    choices:
+    choices: 
+    - No time preference
     - Between 9:00am and 12:00pm
     - Between 12:00pm and 3:00pm
     - Between 3:00pm and 5:00pm
