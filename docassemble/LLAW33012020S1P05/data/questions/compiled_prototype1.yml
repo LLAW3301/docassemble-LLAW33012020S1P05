@@ -18,10 +18,9 @@ sections:
   - Welcome: Welcome
   - Disclaimer: Disclaimer
   - Personal Information: Personal Information
-  - Disability Status: Disability Status
   - Incident Information: Incident Information
   - Desired Outcome: Desired Outcome
-  - Summary: Summary
+  - Summary: Summary 
 ---
 event: Personal Information
 section: Personal Information
@@ -62,12 +61,6 @@ review:
   - Edit answer: JIWdis_stat
     button: |
       Disability status: *${ JIWdis_stat }*
----
-event: Disability Status
-section: Disability Status
-question: |
-  Review Disability Infromation
-review:
   - Edit answer: JIWdisability
     button: |
       Nature of disability: *${ JIWexplanation_future }*
@@ -98,21 +91,24 @@ review:
   - Edit answer: EQLwhere
     button: |
       Where did this happen?: *${ EQLwhere }*
-  - Edit answer: EQLwho
-    button: |
-      Who was there?: *${ EQLwho }*
-  - Edit answer: EQLwhat
-    button: |
-      What happened?: *${ EQLwhat }*
-  - Edit answer: EQLimpact
-    button: |
-      How were you affected?: *${ EQLimpact }*
   - Edit answer: EQLanimal
     button: |
       Was a service animal involved?: *${ EQLanimal }*
+  - Edit answer: EQLwhowhat
+    button: |
+      Who was there? What happened?: *${ EQLwhowhat }*
+  - Edit answer: EQLimpact
+    button: |
+      How were you affected?: *${ EQLimpact }*
   - Edit answer: EQLevidence
     button: |
       Do you have any supporting evidence?: *${ EQLevidence }*
+  - Edit answer: EQLpast_complaint
+    button: |
+      Have you made a complaint about this before?: *${ EQLpast_complaint }*
+  - Edit answer: EQLpast_complaint2who
+    button: |
+      Who did you make the complaint to?: *${ EQLpast_complaint2who }*
 ---
 event: Desired Outcome
 section: Desired Outcome
@@ -121,7 +117,16 @@ question: |
 review:
   - Edit answer: EQLoutcome
     button: |
-      *Desired outcome:* ${ EQLoutcome }
+      *Desired outcome: *${ EQLoutcome }
+  - Edit answer: EQLsend
+    button: |
+      Do you want a copy of this questionaire sent to Equality Lawyers?: *${ EQLsend }*
+  - Edit answer: EQLcontact_me
+    button: |
+      What is your preferred method of contact?: *${ EQLcontact_me }*
+  -  Edit answer: EQLcontact_time
+     button: | 
+       When is the best time to contact you?: *${ EQLcontact_time }* *${ EQLday2contact }*
 ---
 features:
   css: prototype.css
@@ -223,7 +228,7 @@ mandatory: True
 code: |
   EQLdate
   EQLwhere
-  EQLwho
+  EQLwhowhat
   EQLanimal
   if EQLanimal == 'Yes':
     EQLdo_they_apply

@@ -13,4 +13,5 @@ buttons:
   - Exit: EQLthanks
     url: https://www.equalitylawyers.com.au/
   - Restart: restart
+section: Summary
 ---
