@@ -41,7 +41,7 @@ fields:
   - no label: JIWrelation
     datatype: radio
     choices:
-    - Parent/ guardian
+    - Parent / Guardian
     - Carer
     - Partner
     - Friend
@@ -50,6 +50,7 @@ fields:
     show if:
       variable: JIWrelation
       is: Other
+section: Personal Information
 ---
 question: |
   Do you have a disability yourself?
@@ -59,6 +60,7 @@ fields:
     choices: 
     - Yes
     - No
+section: Personal Information
 ---
 question: |
   What is the nature of your disability?
@@ -78,6 +80,7 @@ fields:
     show if:
       variable: JIWdisability
       is: Other
+section: Personal Information
 ---
 continue button field: JIWcontinue_screen
 Question: |

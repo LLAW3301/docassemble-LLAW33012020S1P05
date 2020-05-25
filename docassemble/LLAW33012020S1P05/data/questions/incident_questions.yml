@@ -1,6 +1,6 @@
 ---
 question: |
-  Q1. When did the incident happen? An approximate date is sufficient.
+  When did the incident happen? An approximate date is sufficient.
 fields:
   - no label: EQLdate
     datatype: date
@@ -15,9 +15,10 @@ fields:
   - no label: EQLdate_other
     input type: area
     required: false
+section: Incident Information
 ---
 question: |
-  Q2. Where did this happen?
+  Where did this happen?
 fields: 
   - no label: EQLwhere
     datatype: radio
@@ -36,16 +37,13 @@ fields:
     show if:
       variable: EQLwhere
       is: Other
+section: Incident Information
 ---
 question: |
   Who was there? What happened?
 fields:
   - note: |
-      Q3. Who was  involved?
-  - no label: EQLwho
-    input type: area
-  - note: |
-      Q4. Was there an assistance or service animal involved?
+      Was there an assistance or service animal involved?
   - no label: EQLanimal
     datatype: radio
     choices:
@@ -65,16 +63,16 @@ fields:
       is: Yes
     required: false
   - note: |
-      Q5. What happened?
-  - no label: EQLwhat
+      Who was there? What happened?
+  - no label: EQLwhowhat
     input type: area
   - note: |
-      Q6. How have you been affected or impacted?    
+      How have you been affected or impacted?    
   - no label: EQLimpact
     input type: area
     required: false
   - note: |
-      Q7. Do you have any evidence to support your claim?  
+      Do you have any evidence to support your claim?  
   - no label: EQLevidence
     datatype: radio
     choices:
@@ -86,17 +84,18 @@ fields:
       variable: EQLevidence
       is: Yes
   - note: |
-      Q8. Have you made a complaint about this in the past?  
+      Have you made a complaint about this in the past?  
   - no label: EQLpast_complaint
     datatype: radio
     choices:
       - Yes
       - No 
-  - Who have you made this complaint to?: EQLpast_complaint
+  - Who have you made this complaint to?: EQLpast_complaint2who
     datatype: area
     show if:
       variable: EQLpast_complaint
       is: Yes
+section: Incident Information
 ---
 question: |
   Incident Questions Completed

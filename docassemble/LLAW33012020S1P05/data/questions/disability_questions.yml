@@ -17,19 +17,21 @@ fields:
     show if:
       variable: JIWdisability
       is: Other
-section: Disability Status
+section: Personal Information
 ---
 question: |
   You selected 'I may develop a disability in the future'. Please specify.
 fields: 
   - no label: JIWexplanation_future
     input type: area
+section: Personal Information
 ---
 question: |
   You selected 'People think I have a disability'. Please specify.
 fields: 
   - no label: JIWexplanation_people_think
     input type: area
+section: Personal Information
 ---
 Question: |
   Do you feel that you have been treated differently because of your relationship or association with a person who has a disability?
@@ -39,6 +41,7 @@ fields:
     choices: 
     - Yes
     - No
+section: Personal Information
 ---
 question: |
   ### This form is for ***disability discrimination***. 
@@ -58,6 +61,7 @@ question: |
 fields:
   - no label: JIWapplicable
     input type: area
+section: Personal Information
 ---
 # event 4 endpoint
 # This is the eligible endpoint
@@ -75,4 +79,5 @@ fields:
     show if:
       variable: JIWrelo_or_association
       is: Other
+section: Personal Information
 ---
