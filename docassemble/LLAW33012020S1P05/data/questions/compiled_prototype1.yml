@@ -206,6 +206,7 @@ code: |
     JIWcontinue_screen
     JIWfirstname1
     JIWemail1
+    JIWdis_stat
 ---
 # Collects information about Disability
 mandatory: true
@@ -245,7 +246,9 @@ mandatory: true
 code: |
   if EQLsend == 'Yes':
     EQLcontact_me
+    EQLreview_screen_seen
     EQLending
   else:
+    EQLreview_screen_seen
     EQLending
 ---

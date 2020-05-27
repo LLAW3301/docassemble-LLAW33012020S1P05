@@ -1,6 +1,6 @@
 ---
 question: |
-  Would you like your answers to be sent to *Equlaity Lawyers* for review?
+  Would you like your responses to be sent to *Equality Lawyers* for review?
 subquestion: |
   By pressing **Yes**, you are agreeing to be contacted by Equality Lawyers to discuss your options.
 fields:
@@ -30,6 +30,7 @@ fields:
       is: Phone
     datatype: radio
     choices: 
+    - Any day
     - Monday
     - Tuesday
     - Wednesday
@@ -41,7 +42,13 @@ fields:
       is: Phone
     datatype: radio
     choices:
+    - Any time
     - Between 9:00am and 12:00pm
     - Between 12:00pm and 3:00pm
     - Between 3:00pm and 5:00pm
+---
+continue button field: EQLreview_screen_seen
+Question: Review your responses
+Subquestion:
+  You can review your answers by clicking on the corresponding section name from the navigation bar on the left. Here, you will have the opportunity to amend your responses before a copy in PDF form is created. 
 ---

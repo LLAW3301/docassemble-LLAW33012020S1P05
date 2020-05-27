@@ -51,7 +51,7 @@ fields:
       - No 
     required: false
   - Do any of the following apply?: EQLdo_they_apply
-    datatype: radio
+    datatype: checkboxes
     choices: 
     - I was asked or required to keep the animal under control
     - The discriminator had reasonable suspicion that the animal had an infectious disease 
@@ -79,7 +79,7 @@ fields:
      - Yes
      - No
     required: false
-  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.
+  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers once you have completed the form.
     show if:
       variable: EQLevidence
       is: Yes
@@ -90,7 +90,12 @@ fields:
     choices:
       - Yes
       - No 
-  - Who have you made this complaint to?: EQLpast_complaint2who
+  - Who was the complaint made to?: EQLpast_complaint2who
+    datatype: area
+    show if:
+      variable: EQLpast_complaint
+      is: Yes
+  - What was the outcome?: EQLpast_complaint_outcome
     datatype: area
     show if:
       variable: EQLpast_complaint
