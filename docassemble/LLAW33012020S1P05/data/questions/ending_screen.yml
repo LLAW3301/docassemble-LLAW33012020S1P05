@@ -3,12 +3,12 @@ event: EQLending
 question: |
   All done!
 subquestion: |
-  ###*Thank you for filling out this form.*
+  ###Thank you.
 
-  The informatoin you have provided is available for you to download in PDF format below. 
+  The information you have provided is available for you to download in PDF format below. 
   
-  If you require any further informatin regarding disability discrimination you can visit the Equality Lawyers website below, or if you wish you can restart this form.
-
+  If you require any further information regarding disability discrimination you can visit the Equality Lawyers website below. You will be directed here when you press *exit*. Alternatively, you can restart the form.
+  
 buttons:
   - Exit: EQLthanks
     url: https://www.equalitylawyers.com.au/

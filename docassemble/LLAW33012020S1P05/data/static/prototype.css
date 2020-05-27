@@ -28,16 +28,15 @@
   color: rgb(137,169,217);
   background-color: rgba(255,255,255);
   border-color: rgba(137,169,217,0.25);
-}
 
 /* Sets the appearnce for the 'Restart' button... */
-.btn-secondary{
+.btn-warning{
   color: rgba(137,169,217, 0.75);
   background-color: rgba(26,43,76);
   border-color: rgba(26,43,76);
 }
 /* ...and when hovering over it */
-.btn-danger:hover{
+.btn-warning:hover{
   color: rgb(26,43,76);
   background-color: rgba(255,255,255);
   border-color: rgba(26,43,76,0.25);
@@ -57,6 +56,35 @@
   border-color: rgba(26,43,76,0.25);
 }
 
+/* Sets the appearence for the navigation bar... */
+.nav-link{
+  color: rgb(26,43,76);
+  background-color: rgba(255,255,255);
+  border-color: rgba(26,43,76,0.25);
+}
+
+/* ...and when hovering over it */
+.nav-link:hover{
+  color: rgba(26,43,76);
+  background-color: rgba(137,169,217, 0.25);
+  border-color: rgba(26,43,76);
+}
+
+/* ... and when active state */
+.daclickable.nav-link.danavlink.active{
+  color: rgba(255,255,255);
+  background-color: rgba(26,43,76);
+  border-color: rgba(137,169,217, 0.25);  
+}
+
+
+/* ... and when active state for 'Summary' */
+.nav-link.danavlink.active.thelast{
+  color: rgba(255,255,255);
+  background-color: rgba(26,43,76);
+  border-color: rgba(137,169,217, 0.25);  
+}
+  
 html {
   color: rgb(26,43,76);
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
