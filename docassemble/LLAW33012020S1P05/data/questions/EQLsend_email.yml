@@ -1,0 +1,115 @@
+---
+objects:
+  - authority: Individual
+---
+# Asks if the user would like the information sent to Natalie
+question: |
+  Would you like your answers sent to Natalie Wade at Equality Lawyers for review?
+subquestion: |
+  By pressing "**Yes**" you agree to be contacted by Equality Lawyers in the near future.
+fields:
+  - no label: submit_to_authority
+    datatype: radio
+    choices:
+    - Yes
+    - No
+---
+# If user DOES want the information sent
+question: |
+  What is your preferred method of contact?
+fields: 
+  - no label: EQLcontact_me
+    datatype: radio
+    choices:
+    - Phone
+    - Email
+    - Other
+  - Please specify: EQLcontact_me
+    show if:
+      variable: EQLcontact_me
+      is: Other
+  - What is the best day to be contacted?: EQLday2contact
+    show if: 
+      variable: EQLcontact_me
+      is: Phone
+    datatype: radio
+    choices: 
+    - Any day
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+  - What is the best time to be contacted?: EQLcontact_time
+    show if: 
+      variable: EQLcontact_me
+      is: Phone
+    datatype: radio
+    choices:
+    - Any time
+    - Between 9:00am and 12:00pm
+    - Between 12:00pm and 3:00pm
+    - Between 3:00pm and 5:00pm
+---
+# END SCREEN...If user DOES want the information sent
+question: |
+  Okay, all done!
+subquestion: |
+  Your information has been sent to Natalie Wade at Equality Lawyers for review, you will be contacted shortly to discuss the information you have provided. A PDF of the completed form is also available for you to download below.
+  
+  Or if you prefer, you can email a copy of the PDF to yourself by entering an email adress below.
+
+  In the meantime, if you require any further information regarding disability discrimination pressinig **"Exit"** will direct you to the Equality Lawyers website where links to various sources are available. Alternatively, you can restart the form again by pressing **"Restart"**.
+attachment:
+    name: Disability Discrimination Form
+    filename: Disability_Discrimination_Form
+    variable name: EQL_Form
+    docx template file: test_document.docx
+    valid formats: 
+      - pdf
+buttons:
+  - Exit: EQLthanks
+    url: https://www.equalitylawyers.com.au/
+  - Restart: restart
+event: email_sent
+---
+# END SCREEN...If user DOES NOT want the information sent
+question: |
+  Okay, all done! 
+subquestion: |
+  A PDF of the form with all of your saved information is available for you to download below. Or if you prefer, you can email the a copy of the PDF to yourself by entering an email adress below.
+
+  If you require any further information regarding disability discrimination pressinig **"Exit"** will direct you to the Equality Lawyers website where links to various sources are available. Alternatively, you can restart the form again **"Restart"**.
+attachment:
+    name: Disability Discrimination Form
+    filename: Disability_Discrimination_Form
+    variable name: EQL_Form
+    docx template file: test_document.docx
+    valid formats: 
+      - pdf
+buttons:
+  - Exit: EQLthanks
+    url: https://www.equalitylawyers.com.au/
+  - Restart: restart
+event: email_not_sent
+---
+code: |
+  send_email(to=[authority],
+                       template=my_email,
+                       attachments=[EQL_Form])
+---                    
+code: |
+  authority.name.first = 'Casey'
+  authority.name.last = 'Moffatt'
+  authority.email = 'caseyannmoffatt@hotmail.com'
+---
+template: my_email
+subject: |
+  Ensuring Equality: Disablity Discrimination Form
+content: |
+  Dear Casey,
+  
+  Attached is a copy of the *Ensuring Equality: Disablity Discrimination Form.*
+  
+  Thank you.
+---

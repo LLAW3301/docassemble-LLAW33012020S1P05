@@ -14,119 +14,15 @@ metadata:
   organisation:  Flinders University
   revision_date: 2020-06-3
 ---
-sections:
-  - Welcome: Welcome
-  - Disclaimer: Disclaimer
-  - Personal Information: Personal Information
-  - Incident Information: Incident Information
-  - Desired Outcome: Desired Outcome
-  - Summary: Summary 
----
-event: Personal Information
-section: Personal Information
-question: |
-  Review Personal Information
-review:
-  - Edit answer: JIWperson_filling_in_form
-    button: |
-      Are you filling in this form for yourself or someone else?: *${ JIWperson_filling_in_form }*
-  - Edit answer: JIWfirstname
-    button: |
-      Name: *${ JIWfirstname }* *${ JIWlastname }*
-  - Edit answer: JIWemail
-    button: |
-      E-mail: *${ JIWemail }*
-  - Edit answer: JIWmobile
-    button: |
-      Phone number: *${ JIWmobile }*
-  - Edit answer: JIWaddress
-    button: |
-      Residential address: *${ JIWaddress }*
-  - Edit answer: personal_disability
-    button: |
-      Do you have a disability yourself?: *${ personal_disability }*
-# line break
-  - Edit answer: JIWfirstname1
-    button: |
-      Name: *${ JIWfirstname1 }* *${ JIWlastname1 }*
-  - Edit answer: JIWemail1
-    button: |
-      E-mail: *${ JIWemail1 }*
-  - Edit answer: JIWmobile1
-    button: |
-      Phone number: *${ JIWmobile1 }*
-  - Edit answer: JIWaddress1
-    button: |
-      Residential address: *${ JIWaddress1 }*
-  - Edit answer: JIWdis_stat
-    button: |
-      Disability status: *${ JIWdis_stat }*
-  - Edit answer: JIWdisability
-    button: |
-      Nature of disability: *${ JIWexplanation_future }*
-  - Edit answer: JIWexplanation_future
-    button: |
-      Future disability: *${ JIWexplanation_future }*
-  - Edit answer: JIWexplanation_people_think
-    button: |
-      Disability people think I have: *${ JIWexplanation_people_think }*
-  - Edit answer: relationship_with
-    button: |
-      Do people treat you differently because you have a relationship with a disabled person?: *${ relationship_with }*
-  - Edit answer: JIWapplicable
-    button: |
-      This form applies to me because...: *${ JIWapplicable }*
-  - Edit answer: JIWrelo_or_association
-    button: |
-      What is your relationship with the disabled person?: *${ JIWrelo_or_association }*
----
-event: Incident Information
-section: Incident Information
-question: |
-  Review Incident Information
-review:
-  - Edit answer: EQLdate
-    button: |
-      Date of incident: *${ EQLdate }* *${ EQLidkwhen1 }*
-  - Edit answer: EQLwhere
-    button: |
-      Where did this happen?: *${ EQLwhere }*
-  - Edit answer: EQLanimal
-    button: |
-      Was a service animal involved?: *${ EQLanimal }*
-  - Edit answer: EQLwhowhat
-    button: |
-      Who was there? What happened?: *${ EQLwhowhat }*
-  - Edit answer: EQLimpact
-    button: |
-      How were you affected?: *${ EQLimpact }*
-  - Edit answer: EQLevidence
-    button: |
-      Do you have any supporting evidence?: *${ EQLevidence }*
-  - Edit answer: EQLpast_complaint
-    button: |
-      Have you made a complaint about this before?: *${ EQLpast_complaint }*
-  - Edit answer: EQLpast_complaint2who
-    button: |
-      Who did you make the complaint to?: *${ EQLpast_complaint2who }*
----
-event: Desired Outcome
-section: Desired Outcome
-question: |
-  Review Desired Outcome Information
-review:
-  - Edit answer: EQLoutcome
-    button: |
-      *Desired outcome: *${ EQLoutcome }
-  - Edit answer: EQLsend
-    button: |
-      Do you want a copy of this questionaire sent to Equality Lawyers?: *${ EQLsend }*
-  - Edit answer: EQLcontact_me
-    button: |
-      What is your preferred method of contact?: *${ EQLcontact_me }*
-  -  Edit answer: EQLcontact_time
-     button: | 
-       When is the best time to contact you?: *${ EQLcontact_time }* *${ EQLday2contact }*
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex- direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib- site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: center"> <cite><small><i>
+    Developed by Flinders University in collaboration with Equality Lawyers </i></small></cite>
+    </div>
+    </div>
 ---
 features:
   css: prototype.css
@@ -145,84 +41,217 @@ objects:
   - endpoint: DADict
 ---
 include:
-  - personal_info_questions.yml
-  - disability_questions.yml
-  - incident_questions.yml
-  - desired_outcome_questions.yml
-  - sending_page.yml
-  - ending_screen.yml
+  - EQLwelcome_and_disclaimer.yml
+  - EQLreview_info_note.yml
+  - EQLchooses_myself_personal_info.yml
+  - EQLchooses_someone_else_personal_info.yml
+  - EQLincident_questions.yml
+  - EQLdesired_outcome_questions.yml
+  - EQLsend_email.yml
 ---
-# welcome screen.
-mandatory: True
-question: "Ensuring Equality: Discrimination Reporting Form"
-subquestion: |
-  ### **Welcome**
-  
-  > Equality Lawyers' *Ensuring Equality: Discrimination Reporting Form* is a questionnaire-based software application designed to identify potential incidents of disability discrimination and provide assistance to victims going forward. 
-  
-   It is common for people who have been treated unfavourably because of their disability to be unsure as to whether their situation amounts to discrimination before the law. This reporting form will seek to clarify this uncertainty and connect individuals with Equality Lawyers' advice.
-  
-  In accordance with the State and National laws designed to protect those with disabilities from unfair treatment, the *Ensuring Equality: Discrimination Reporting Form* will ask users a set of questions to determine whether an incident of disability discrimination has occurred, and provide a variety of options for resolution. 
-  
-  If you wish to access additional information regarding disability discrimination or other disability focused legal issues visit our [services page](https://www.equalitylawyers.com.au/services).
-  
-  If you wish to continue and complete the *Ensuring Equality: Discrimination Reporting Form* press **Continue**.
-buttons:
-  - "Continue": continue
-  - "Return to Home Page": exit
-    url: https://www.equalitylawyers.com.au/
-section: Welcome
+sections:
+  - Welcome: Welcome
+  - Disclaimer: Disclaimer
+  - Personal Information: Personal Information
+  - Incident Information: Incident Information
+  - Outcome: Outcome
+  - Summary: Summary 
 ---
-# Disclaimer Screen 
-mandatory: True 
-question: Disclaimer and Privacy Policy
-subquestion: | 
-   
-   ***PURPOSE OF GENERATED DATA***
-   
-   It is important that users of the *Ensuring Equality: Discrimination Reporting Form* do not misconstrue any generated information or data as legal advice provided by Equality Lawyers. Accordingly, the use of the *Ensuring Equality: Discrimination Reporting Form* does not automatically engage the legal services of Equality Lawyers. This form is simply a tool to assist Equality Lawyers in determining whether a situation amounts to a breach of the *Disability Discrimination Act 1992 (Cth)* and other State based Acts. 
-   
-   Upon completion, any information provided by users will be recorded and stored in accordance with Equality Lawyer's privacy policy (below) and the *Privacy Act 1988 (Cth)*. Users will be able to view and download their reponses in PDF document format. This document will also be forwarded to Equality Lawyers, provided you elect this option. Whether Equality Lawyers decides to contact users and provide follow-up legal advice regarding the documented information is of the discretion of Equality Lawyers.  
-   
-   ***NEED TO INSERT NATALIE'S PRIVACY POLICY HERE***
-   
-   Do you accept these terms? 
-buttons:
-  - Yes: continue
-  - No: exit
-    url: https://www.equalitylawyers.com.au/
-section: Disclaimer
+event: Personal Information
+section: Personal Information
+question: |
+  Review Personal Information Answers
+review:
+  - Edit answer: EQLperson_filling_in_form
+    button: |
+      Are you filling in this form for yourself or someone else?: **${ EQLperson_filling_in_form }**
+  - Edit answer: EQLfirstname1
+    button: |
+      Name: **${ EQLfirstname1 }** **${ EQLlastname1 }**
+  - Edit answer: EQLemail1
+    button: |
+      Email: **${ EQLemail1 }**
+  - Edit answer: EQLphone1
+    button: |
+      Phone Number: **${ EQLphone1 }**
+  - Edit answer: EQLaddress1
+    button: |
+      Residential Address: **${ EQLaddress1 }**
+  - Edit answer: EQLdis1
+    button: |
+      Your situation: **${ EQLdis1 }**
+  - Edit answer: EQLdis_type1
+    button: |
+      Disability type: **${ EQLdis_type1 }**
+  - Edit answer: EQLexplain_future1
+    button: |
+      What disability may you develop in the future?: **${ EQLexplain_future1 }**
+  - Edit answer: EQLexplain_ppl_thk1
+    button: |
+      What disability do people think you have?: **${ EQLexplain_ppl_thk1 }**
+  - Edit answer: EQLrelationship1
+    button: |
+      Have you been treated differently because of your relationshiip with a disabled person?: **${ EQLrelationship1 }**      
+  - Edit answer: EQLrelationship_with1
+    button: |
+      What is your relationshiip with the disabled person?: **${ EQLrelationship_with1 }**       
+  - Edit answer: EQLfor_me1
+    button: |
+      Why do you believe this form applies to you?: **${ EQLfor_me1 }**   
+  - Edit answer: EQLrelation_to
+    button: |
+      What is your relatioinship with the affected person?: **${ EQLrelation_to }**   
+  - Edit answer: EQLfirstname2
+    button: |
+      Name: **${ EQLfirstname2 }** **${ EQLlastname2 }**
+  - Edit answer: EQLemail2
+    button: |
+      Email: **${ EQLemail2 }**
+  - Edit answer: EQLphone2
+    button: |
+      Phone Number: **${ EQLphone2 }**
+  - Edit answer: EQLaddress2
+    button: |
+      Residential Address: **${ EQLaddress2 }**
+  - Edit answer: EQLrelation_to_dis
+    button: |
+      Do you have a disability?: **${ EQLrelation_to_dis }**
+  - Edit answer: EQLfirstname3
+    button: |
+      Name of the affected person: **${ EQLfirstname3 }** **${ EQLlastname3 }**  
+  - Edit answer: EQLemail3
+    button: |
+      Email: **${ EQLemail3 }**
+  - Edit answer: EQLphone3
+    button: |
+      Phone Number: **${ EQLphone3 }**
+  - Edit answer: EQLaddress3
+    button: |
+      Residential Address: **${ EQLaddress3 }** 
+  - Edit answer: EQLdis3
+    button: |
+      Situation of affected person: **${ EQLdis3 }**       
+  - Edit answer: EQLdis_type3
+    button: |
+      Disability Type: **${ EQLdis_type3 }**       
+  - Edit answer: EQLexplain_future3
+    button: |
+      What disability may the affected person develop in the future?: **${ EQLexplain_future3 }**        
+  - Edit answer: EQLexplain_ppl_thk3
+    button: |
+      What disability do people think the affected person has?: **${ EQLexplain_ppl_thk3 }**    
+  - Edit answer: EQLrelationship3
+    button: |
+      Have they been treated differently because of their rerlatioinship with a disabled person?: **${ EQLrelationship3 }**         
+  - Edit answer: EQLrelationship_with3
+    button: |
+      What is their relationship with the disabled person?: **${ EQLrelationship_with3 }** 
+  - Edit answer: EQLfor_me3
+    button: |
+      Why do you believe this form applies to you?: **${ EQLfor_me3 }** 
 ---
-# Collects personal information
-mandatory: True
-code: |
-  JIWperson_filling_in_form
-  JIWfirstname
-  JIWemail
-  if JIWperson_filling_in_form == 'Someone else':
-    JIWrelation
-    if personal_disability == 'Yes':
-      JIWdisability
-    JIWcontinue_screen
-    JIWfirstname1
-    JIWemail1
-    JIWdis_stat
+event: Incident Information
+section: Incident Information
+question: |
+  Review Incident Information Answers
+review:
+  - Edit answer: EQLdate
+    button: |
+      Date of incident: **${ EQLdate }** **${ EQLdate_other }**
+  - Edit answer: EQLwhere
+    button: |
+      Location of incident: **${ EQLwhere }** 
+  - Edit answer: EQLanimal
+    button: |
+      Was an assistance animal involved?: **${ EQLanimal }** **${ EQLdo_they_apply }** 
+  - Edit answer: EQLwhowhat
+    button: |
+      What happened and who was involved?: **${ EQLwhowhat }** 
+  - Edit answer: EQLimpact
+    button: |
+      How have you been affected?: **${ EQLimpact }** 
+  - Edit answer: EQLevidence
+    button: |
+      Do you have any evidence?: **${ EQLevidence }** 
+  - Edit answer: EQLpast_complaint
+    button: |
+      Have you made a complaint about this in the past?: **${ EQLpast_complaint }** 
+  - Edit answer: EQLpast_complaint2who
+    button: |
+      Who was the complaint made to?: **${ EQLpast_complaint2who }** 
+  - Edit answer: EQLpast_complaint_outcome
+    button: |
+      Outcome of previous complaint: **${ EQLpast_complaint_outcome }** 
 ---
-# Collects information about Disability
+event: Outcome
+section: Outcome
+question: |
+  Review Outcome Answers
+review:
+  - Edit answer: EQLoutcome
+    button: |
+      What would you like to see happen once filling out this form?: **${ EQLoutcome }**
+  - Edit answer: EQLoutcome_complaint
+    button: |
+      What would you like to see happen once making a formal complaint?: **${ EQLoutcome_complaint }**
+  - Edit answer: submit_to_authority
+    button: |
+      Would you like your answers sent to Equality Lawyers?: **${ submit_to_authority }**
+  - Edit answer: EQLcontact_me
+    button: |
+      Preferred method of contact: **${ EQLcontact_me }**
+  - Edit answer: EQLday2contact
+    button: |
+      Best time to be contacted: **${ EQLday2contact }** **${ EQLcontact_time }**
+---
+# Collects personal and disability information
+question: |
+  Are you fillng out this form for yourself or on the behalf of someone else?
+fields:
+  - no label: EQLperson_filling_in_form
+    datatype: radio
+    choices:
+    - Myself
+    - Someone else
+---
+# Code for all of the personal and disability information pathways
 mandatory: true
 code: |
-  if ( JIWdis_stat == 'I have a disability' ) or ( JIWdis_stat == 'I have had a disability in the past' ):
-    JIWdisability
-  elif JIWdis_stat == 'I may develop a disability in the future':
-    JIWexplanation_future
-  elif JIWdis_stat == 'People think I have a disability':
-    JIWexplanation_people_think
-  else:
-    if relationship_with == 'Yes':
-      JIWrelo_or_association 
+  if EQLperson_filling_in_form == 'Myself':
+    EQLfirstname1
+    EQLemail1
+    EQLdis1
+    if EQLdis1 == 'I have a disability' or EQLdis1 == 'I have had a disability in the past':
+        EQLdis_type1
+    elif EQLdis1 == 'I may develop a disability in the future':
+      EQLexplain_future1
+    elif EQLdis1 == 'People think I have a disability':
+      EQLexplain_ppl_thk1
     else:
-      JIWwishes_to_continue
-      JIWapplicable
+      if EQLrelationship1 == 'Yes':
+        EQLrelationship_with1 
+      else:
+        EQLfor_me1
+  else:
+    EQLrelation_to
+    EQLfirstname2
+    EQLlastname2
+    EQLemail2
+    EQLrelation_to_dis
+    EQLfirstname3
+    EQLemail3
+    EQLdis3
+    if ( EQLdis3 == 'They have a disability' ) or ( EQLdis3 == 'They have had a disability in the past' ):
+      EQLdis_type3
+    elif EQLdis3 == 'They may develop a disability in the future':
+      EQLexplain_future3
+    elif EQLdis3 == 'People think they have a disability':
+      EQLexplain_ppl_thk3
+    else:
+      if EQLrelationship3 == 'Yes':
+        EQLrelationship_with3
+      else:
+        EQLfor_me3
 ---
 # Collects information about the incident
 mandatory: True
@@ -239,16 +268,15 @@ mandatory: True
 code: | 
   EQLoutcome
   if EQLoutcome == 'I would like to make a complaint':
-    EQLoutcome1
+    EQLoutcome_complaint
 ---
 # Sends user to sending page and the final screen
 mandatory: true
 code: |
-  if EQLsend == 'Yes':
+  if submit_to_authority == 'Yes':
+    send_email
     EQLcontact_me
-    EQLreview_screen_seen
-    EQLending
-  else:
-    EQLreview_screen_seen
-    EQLending
+    email_sent
+  if submit_to_authority == 'No':
+    email_not_sent
 ---
