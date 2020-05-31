@@ -13,7 +13,7 @@ fields:
     required: false
   - note: |
       If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify below. 
-  - no label: EQLdate
+  - no label: EQLdate_other
     input type: area
     required: false
 section: Incident Information
@@ -82,7 +82,7 @@ fields:
      - Yes
      - No
     required: false
-  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers once you have completed the form.
+  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.com.au once you have completed the form.
     show if:
       variable: EQLevidence
       is: Yes
