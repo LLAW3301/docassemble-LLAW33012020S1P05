@@ -10,7 +10,7 @@ fields:
       Last Name:
   - no label: EQLlastname1
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Contact details
@@ -31,7 +31,7 @@ fields:
     datatype: area
     hint: e.g., 123 First Street, Adelaide, South Australia, 5000
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Please select the statement that best describes your situation?
@@ -44,6 +44,7 @@ fields:
     - I may develop a disability in the future
     - People think I have a disability
     - I do not have a disability
+section: Personal Information
 ---
 # When uses selects "I have..." or "I had..."
 question: |
@@ -63,6 +64,7 @@ fields:
     show if:
       variable: EQLdis_type1
       is: Other
+section: Personal Information
 ---
 # When user selects "disability in the future..."
 question: |
@@ -70,6 +72,7 @@ question: |
 fields: 
   - Please specify: EQLexplain_future1
     input type: area
+section: Personal Infromation
 ---
 # When user selects "ppl thk I have..."
 question: |
@@ -77,6 +80,7 @@ question: |
 fields: 
   - Please specify: EQLexplain_ppl_thk1
     input type: area
+section: Personal Information
 ---
 # When user selects "none of the above..."
 question: |  
@@ -86,6 +90,7 @@ fields:
     choices: 
     - Yes
     - No
+section: Personal Information
 ---
 question: |
   What is your relationship or association with the disabled person?
@@ -101,6 +106,7 @@ fields:
     show if:
       variable: EQLrelationship_with1
       is: Other
+section: Personal Information
 ---
 question: |
   This form is for disability discrimination.
@@ -109,4 +115,5 @@ subquestion: |
 fields:
   - no label: EQLfor_me1
     input type: area
+section: Personal Information
 ---
