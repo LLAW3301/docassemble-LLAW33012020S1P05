@@ -140,6 +140,13 @@ a:hover{
 .form-group.darequired .da-form-label:after {
   color: rgb(26,43,76);
 }
+
+/* Sets appearance for document creation pop up */
+.alert {
+  color: rgba(26,43,76);
+  background-color: rgba(255,255,255);
+  border-color: rgba(26,43,76);  
+}
   
 html {
   color: rgb(26,43,76);
