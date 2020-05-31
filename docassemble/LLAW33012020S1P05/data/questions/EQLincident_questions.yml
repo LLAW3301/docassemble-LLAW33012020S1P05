@@ -5,7 +5,7 @@ fields:
   - no label: EQLdate
     datatype: date
     required: false
-  - no label: EQLidkwhen1
+  - no label: EQLdate
     datatype: checkboxes
     choices:
       - I do not know
@@ -13,7 +13,7 @@ fields:
     required: false
   - note: |
       If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify below. 
-  - no label: EQLdate_other
+  - no label: EQLdate
     input type: area
     required: false
 section: Incident Information

@@ -15,6 +15,7 @@ fields:
     show if:
       variable: EQLrelation_to
       is: Other
+section: Personal Information
 ---
 question: |
   What is your name?
@@ -26,7 +27,7 @@ fields:
       Last Name:
   - no label: EQLlastname2
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Contact details
@@ -47,7 +48,7 @@ fields:
     datatype: area
     hint: e.g., 123 First Street, Adelaide, South Australia, 5000
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Do you have a disability yourself?
@@ -57,6 +58,7 @@ fields:
     choices: 
     - Yes
     - No
+section: Personal Information
 ---
 question: |
   What is the name of the affected person?
@@ -68,7 +70,7 @@ fields:
       Last Name:
   - no label: EQLlastname3
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Contact details of the affected person:
@@ -89,7 +91,7 @@ fields:
     datatype: area
     hint: e.g., 123 First Street, Adelaide, South Australia, 5000
     required: false
-section: Personal Infromation
+section: Personal Information
 ---
 question: |
   Please select the statement that best reflects the affected person's situation?
@@ -98,10 +100,11 @@ fields:
     datatype: radio
     choices:
     - They have a disability
-    - They have had a disability in the past
+    - They had a disability in the past
     - They may develop a disability in the future
     - People think they have a disability
-    - None of the above
+    - They do not have a disability
+section: Personal Information
 ---
 # When uses selects "They have..." or "They had..."
 question: |
@@ -121,6 +124,7 @@ fields:
     show if:
       variable: EQLdis_type3
       is: Other
+section: Personal Information
 ---
 # When user selects "disability in the future..."
 question: |
@@ -128,6 +132,7 @@ question: |
 fields: 
   - Please specify: EQLexplain_future3
     input type: area
+section: Personal Information
 ---
 # When user selects "ppl thk they have..."
 question: |
@@ -135,6 +140,7 @@ question: |
 fields: 
   - Please specify: EQLexplain_ppl_thk3
     input type: area
+section: Personal Information
 ---
 # When user selects "none of the above..."
 question: |  
@@ -144,6 +150,7 @@ fields:
     choices: 
     - Yes
     - No
+section: Personal Information
 ---
 question: |
   What is their relationship or association with the disabled person?
@@ -159,6 +166,7 @@ fields:
     show if:
       variable: EQLrelationship_with3
       is: Other
+section: Personal Information
 ---
 question: |
   This form is for disability discrimination.
@@ -167,4 +175,5 @@ subquestion: |
 fields:
   - no label: EQLfor_me3
     input type: area
+section: Personal Information
 ---
