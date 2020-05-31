@@ -6,10 +6,14 @@ fields:
   - note: |
       First Name:
   - no label: EQLfirstname1
+    default: |  
+      John
   - note: |
       Last Name:
   - no label: EQLlastname1
     required: false
+    default: |  
+      Smith
 section: Personal Information
 ---
 question: |
@@ -20,11 +24,15 @@ fields:
   - no label: EQLemail1
     datatype: email 
     required: false
+    default: |  
+      john.smith@gmail.com
   - note: |
       Phone Number:
   - no label: EQLphone1
     datatype: integer
     required: false
+    default: |  
+      0412345678
   - note: |
       Residential Address:
   - no label: EQLaddress1
@@ -115,5 +123,7 @@ subquestion: |
 fields:
   - no label: EQLfor_me1
     input type: area
+    default: |  
+      This form is relevant to me because...
 section: Personal Information
 ---

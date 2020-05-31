@@ -23,10 +23,14 @@ fields:
   - note: |
       First Name:
   - no label: EQLfirstname2
+    default: |  
+      Sally
   - note: |
       Last Name:
   - no label: EQLlastname2
     required: false
+    default: |  
+      Smith
 section: Personal Information
 ---
 question: |
@@ -37,11 +41,15 @@ fields:
   - no label: EQLemail2
     datatype: email 
     required: false
+    default: |  
+      sally.smith@gmail.com
   - note: |
       Phone Number:
   - no label: EQLphone2
     datatype: integer
     required: false
+    default: |  
+      0412345678
   - note: |
       Residential Address:
   - no label: EQLaddress2
@@ -66,10 +74,14 @@ fields:
   - note: |
       First Name:
   - no label: EQLfirstname3
+    default: |  
+      John
   - note: |
       Last Name:
   - no label: EQLlastname3
     required: false
+    default: |  
+      Smith
 section: Personal Information
 ---
 question: |
@@ -80,11 +92,15 @@ fields:
   - no label: EQLemail3
     datatype: email 
     required: false
+    default: |  
+      john.smith@gmail.com
   - note: |
       Phone Number:
   - no label: EQLphone3
     datatype: integer
     required: false
+    default: |  
+      0412345678
   - note: |
       Residential Address:
   - no label: EQLaddress3

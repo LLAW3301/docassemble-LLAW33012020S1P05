@@ -41,7 +41,7 @@ fields:
 section: Incident Information
 ---
 question: |
-  The next questions are about what happened and who was there:
+  The next questions are about what happened and who was there
 fields:
   - note: |
       Was there an assistance or service animal involved?
@@ -57,8 +57,7 @@ fields:
     - I was asked or required to keep the animal under control
     - The discriminator had reasonable suspicion that the animal had an infectious disease 
     - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
-    - I provided them with said evidence (if above applies)
-    - None apply 
+    - I provided them with said evidence (if the above applies)
     show if: 
       variable: EQLanimal
       is: Yes
@@ -67,6 +66,9 @@ fields:
       What happened and who was there? 
   - no label: EQLwhowhat
     input type: area
+    default: |  
+      I was with my friends X, Y and Z. 
+      I was refused entry because of... 
   - note: |
       How have you been affected or impacted?    
   - no label: EQLimpact
@@ -96,10 +98,14 @@ fields:
     show if:
       variable: EQLpast_complaint
       is: Yes
+    default: |  
+      The complaint was made to X lawyers.
   - What was the outcome?: EQLpast_complaint_outcome
     datatype: area
     show if:
       variable: EQLpast_complaint
       is: Yes
+    default: |  
+      The case went to court and ... 
 section: Incident Information
 ---
