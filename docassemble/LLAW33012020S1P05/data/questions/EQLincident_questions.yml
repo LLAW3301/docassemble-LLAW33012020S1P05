@@ -1,6 +1,6 @@
 ---
 question: |
-  When did the incident happen? An approximate date is sufficient.
+  When did the incident happen? An approximate date is ok.
 fields:
   - no label: EQLdate
     datatype: date
@@ -50,7 +50,6 @@ fields:
     choices:
       - Yes
       - No 
-    required: false
   - Do any of the following apply?: EQLdo_they_apply
     datatype: checkboxes
     choices: 
@@ -58,6 +57,7 @@ fields:
     - The discriminator had reasonable suspicion that the animal had an infectious disease 
     - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
     - I provided them with said evidence (if the above applies)
+    - I am not sure
     show if: 
       variable: EQLanimal
       is: Yes
@@ -81,7 +81,6 @@ fields:
     choices:
      - Yes
      - No
-    required: false
   - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.com.au once you have completed the form.
     show if:
       variable: EQLevidence

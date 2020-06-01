@@ -9,11 +9,11 @@ fields:
       - I would like to make a formal complaint
       - I am not sure 
       - Other
-  - Please specify: EQLoutcome
+  - Please specify: EQLoutcome1
     show if:
       variable: EQLoutcome
       is: Other
-section: Desired Outcome
+section: Outcome
 ---
 Question: |
   What would you like to see happen from making a formal complaint?
@@ -31,5 +31,5 @@ fields:
     show if:
       variable: EQLoutcome_complaint
       is: Other
-section: Desired Outcome
+section: Outcome
 ---

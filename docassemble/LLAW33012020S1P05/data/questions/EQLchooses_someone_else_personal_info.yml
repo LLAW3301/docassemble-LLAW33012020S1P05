@@ -18,7 +18,7 @@ fields:
 section: Personal Information
 ---
 question: |
-  What is your name?
+  Personal Information and Contact Details
 fields:
   - note: |
       First Name:
@@ -28,14 +28,8 @@ fields:
   - note: |
       Last Name:
   - no label: EQLlastname2
-    required: false
     default: |  
       Smith
-section: Personal Information
----
-question: |
-  Contact details
-fields: 
   - note: |
       Email Address:
   - no label: EQLemail2
@@ -47,7 +41,6 @@ fields:
       Phone Number:
   - no label: EQLphone2
     datatype: integer
-    required: false
     default: |  
       0412345678
   - note: |
@@ -69,7 +62,7 @@ fields:
 section: Personal Information
 ---
 question: |
-  What is the name of the affected person?
+  Personal Information of the affected person
 fields:
   - note: |
       First Name:
@@ -79,14 +72,8 @@ fields:
   - note: |
       Last Name:
   - no label: EQLlastname3
-    required: false
     default: |  
       Smith
-section: Personal Information
----
-question: |
-  Contact details of the affected person:
-fields: 
   - note: |
       Email Address:
   - no label: EQLemail3
@@ -98,7 +85,6 @@ fields:
       Phone Number:
   - no label: EQLphone3
     datatype: integer
-    required: false
     default: |  
       0412345678
   - note: |
@@ -110,7 +96,7 @@ fields:
 section: Personal Information
 ---
 question: |
-  Please select the statement that best reflects the affected person's situation?
+  Please select the statement that best reflects the affected person's situation
 fields:
   - no label: EQLdis3
     datatype: radio
@@ -119,7 +105,7 @@ fields:
     - They had a disability in the past
     - They may develop a disability in the future
     - People think they have a disability
-    - They do not have a disability
+    - None of the above apply 
 section: Personal Information
 ---
 # When uses selects "They have..." or "They had..."
@@ -135,6 +121,7 @@ fields:
     - Neurological
     - Cognitive
     - Intellectual
+    - Prefer not to say
     - Other
   - Please specify: EQLdis_type3
     show if:
@@ -148,6 +135,9 @@ question: |
 fields: 
   - Please specify: EQLexplain_future3
     input type: area
+    default: |
+      They may develop ...
+      More information on this is ... 
 section: Personal Information
 ---
 # When user selects "ppl thk they have..."
@@ -156,6 +146,9 @@ question: |
 fields: 
   - Please specify: EQLexplain_ppl_thk3
     input type: area
+    default: |
+      People think they have ...
+      The reason for this is ...
 section: Personal Information
 ---
 # When user selects "none of the above..."

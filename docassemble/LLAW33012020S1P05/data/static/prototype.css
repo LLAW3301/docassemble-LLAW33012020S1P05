@@ -8,9 +8,9 @@
 }
 
 .navbar .dropdown-menu{
-    */
     background-color: rgba(137,169,217,0.5);
 }
+
 /* Sets properties for when hovering over a menu item in the 
    drop-down menu */
 .dropdown-item:hover{
@@ -23,6 +23,7 @@
   background-color: rgba(137,169,217,0.25);
   border-color: rgba(137,169,217,0.25);
 }
+
 /* ...and when hovering over it */
 .btn-primary:hover{
   color: rgb(137,169,217);
@@ -30,12 +31,21 @@
   border-color: rgba(137,169,217,0.25);
 }
 
-/* Sets the appearnce for the 'Restart' button... */
+/* ...and the box shadow stuff */
+.btn-primary:focus {
+  box-shadow: none !important;
+  outline-color: rgb(137,169,217) !important;
+  outline-width: 1px !important;
+
+}
+
+/* Sets the appearance for the 'Restart' button... */
 .btn-secondary{
   color: rgba(137,169,217, 0.75);
   background-color: rgba(26,43,76);
   border-color: rgba(26,43,76);
 }
+
 /* ...and when hovering over it */
 .btn-secondary:hover{
   color: rgb(26,43,76);
@@ -130,15 +140,7 @@ a{
 a:hover{
   color: rgb(26,43,76);
   text-decoration: underline
-}
 
-/* Sets appearance for '*' */
-.col.dawidecol.dafieldpart::before {
-  color: rgb(26,43,76);
-}
-/* Sets appearance for '*' */
-.form-group.darequired .da-form-label:after {
-  color: rgb(26,43,76);
 }
 
 /* Sets appearance for document creation pop up */

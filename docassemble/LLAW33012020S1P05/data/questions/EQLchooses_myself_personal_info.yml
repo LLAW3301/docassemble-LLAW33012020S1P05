@@ -1,7 +1,7 @@
 # When user chooses "myself"
 ---
 question: |
-  What is your name?
+  Personal Information and Contact Details
 fields:
   - note: |
       First Name:
@@ -11,14 +11,8 @@ fields:
   - note: |
       Last Name:
   - no label: EQLlastname1
-    required: false
     default: |  
       Smith
-section: Personal Information
----
-question: |
-  Contact details
-fields: 
   - note: |
       Email Address:
   - no label: EQLemail1
@@ -30,7 +24,6 @@ fields:
       Phone Number:
   - no label: EQLphone1
     datatype: integer
-    required: false
     default: |  
       0412345678
   - note: |
@@ -42,7 +35,7 @@ fields:
 section: Personal Information
 ---
 question: |
-  Please select the statement that best describes your situation?
+  Please select the statement that best describes your situation
 fields:
   - no label: EQLdis1
     datatype: radio
@@ -51,7 +44,7 @@ fields:
     - I had a disability in the past
     - I may develop a disability in the future
     - People think I have a disability
-    - I do not have a disability
+    - None of the above apply
 section: Personal Information
 ---
 # When uses selects "I have..." or "I had..."
@@ -67,6 +60,7 @@ fields:
     - Neurological
     - Cognitive
     - Intellectual
+    - I prefer not to say
     - Other
   - Please specify: EQLdis_type1
     show if:
@@ -80,6 +74,9 @@ question: |
 fields: 
   - Please specify: EQLexplain_future1
     input type: area
+    default: |
+      I may develop ...
+      More information on this is ... 
 section: Personal Infromation
 ---
 # When user selects "ppl thk I have..."
@@ -88,6 +85,9 @@ question: |
 fields: 
   - Please specify: EQLexplain_ppl_thk1
     input type: area
+    default: |
+      People think I have ...
+      The reason for this is ... 
 section: Personal Information
 ---
 # When user selects "none of the above..."
