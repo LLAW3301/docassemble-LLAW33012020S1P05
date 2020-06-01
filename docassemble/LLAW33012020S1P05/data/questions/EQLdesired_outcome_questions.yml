@@ -6,7 +6,7 @@ fields:
     datatype: radio
     choices:
       - I would like to speak with a lawyer to discuss my options
-      - I would like to make a complaint
+      - I would like to make a formal complaint
       - I am not sure 
       - Other
   - Please specify: EQLoutcome
@@ -16,9 +16,9 @@ fields:
 section: Desired Outcome
 ---
 Question: |
-  What is your desired outcome? 
+  What would you like to see happen from making a formal complaint?
 fields: 
-  - no label: EQLoutcome1
+  - no label: EQLoutcome_complaint
     datatype: radio 
     choices:
       - Compensation 
@@ -27,17 +27,9 @@ fields:
       - Rectification of the discriminatory act 
       - I do not know
       - Other
-  - Please specify: EQLoutcome1
+  - Please specify: EQLoutcome_complaint
     show if:
-      variable: EQLoutcome1
+      variable: EQLoutcome_complaint
       is: Other
 section: Desired Outcome
----
-question: |
-  Desired Outcome Information Completed
-subquestion: |
-  Thank you for filling out this section of the form. 
-  
-  You will now be shown a summary of the infromation you have provided.
-continue button field: EQL_desired_outcome_complete
 ---

@@ -1,0 +1,130 @@
+# When user chooses "myself"
+---
+question: |
+  What is your name?
+fields:
+  - note: |
+      First Name:
+  - no label: EQLfirstname1
+    default: |  
+      John
+  - note: |
+      Last Name:
+  - no label: EQLlastname1
+    required: false
+    default: |  
+      Smith
+section: Personal Information
+---
+question: |
+  Contact details
+fields: 
+  - note: |
+      Email Address:
+  - no label: EQLemail1
+    datatype: email 
+    required: false
+    default: |  
+      john.smith@gmail.com
+  - note: |
+      Phone Number:
+  - no label: EQLphone1
+    datatype: integer
+    required: false
+    default: |  
+      0412345678
+  - note: |
+      Residential Address:
+  - no label: EQLaddress1
+    datatype: area
+    hint: e.g., 123 First Street, Adelaide, South Australia, 5000
+    required: false
+section: Personal Information
+---
+question: |
+  Please select the statement that best describes your situation?
+fields:
+  - no label: EQLdis1
+    datatype: radio
+    choices:
+    - I have a disability
+    - I had a disability in the past
+    - I may develop a disability in the future
+    - People think I have a disability
+    - I do not have a disability
+section: Personal Information
+---
+# When uses selects "I have..." or "I had..."
+question: |
+  What disability?
+fields:
+  - no label: EQLdis_type1
+    datatype: radio
+    choices:
+    - Physical
+    - Sensory
+    - Psychiatric
+    - Neurological
+    - Cognitive
+    - Intellectual
+    - I prefer not to say
+    - Other
+  - Please specify: EQLdis_type1
+    show if:
+      variable: EQLdis_type1
+      is: Other
+section: Personal Information
+---
+# When user selects "disability in the future..."
+question: |
+  What disability may you develop in the future? 
+fields: 
+  - Please specify: EQLexplain_future1
+    input type: area
+section: Personal Infromation
+---
+# When user selects "ppl thk I have..."
+question: |
+  What disability do people think you have? 
+fields: 
+  - Please specify: EQLexplain_ppl_thk1
+    input type: area
+section: Personal Information
+---
+# When user selects "none of the above..."
+question: |  
+  Have you been treated differently because of your relationship or association with a disabled person?
+fields:
+  - no label: EQLrelationship1
+    choices: 
+    - Yes
+    - No
+section: Personal Information
+---
+question: |
+  What is your relationship or association with the disabled person?
+fields:
+  - no label: EQLrelationship_with1
+    datatype: radio
+    choices:
+    - Friend
+    - Partner 
+    - Family member 
+    - Other
+  - Please specify: EQLrelationship_with1
+    show if:
+      variable: EQLrelationship_with1
+      is: Other
+section: Personal Information
+---
+question: |
+  This form is for disability discrimination.
+subquestion: |
+  Briefly explain why this form is suited for you:
+fields:
+  - no label: EQLfor_me1
+    input type: area
+    default: |  
+      This form is relevant to me because...
+section: Personal Information
+---

@@ -5,14 +5,15 @@ fields:
   - no label: EQLdate
     datatype: date
     required: false
-  - no label: EQLidkwhen1
-    input type: radio
+  - no label: EQLdate
+    datatype: checkboxes
     choices:
       - I do not know
+    none of the above: False
     required: false
   - note: |
       If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify below. 
-  - no label: EQLdate_other
+  - no label: EQLdate
     input type: area
     required: false
 section: Incident Information
@@ -40,7 +41,7 @@ fields:
 section: Incident Information
 ---
 question: |
-  Who was there? What happened?
+  The next questions are about what happened and who was there
 fields:
   - note: |
       Was there an assistance or service animal involved?
@@ -50,22 +51,23 @@ fields:
       - Yes
       - No 
     required: false
-  - Do any of the following apply?: EQLdo_they_apply
-    datatype: checkboxes
+  - Please select if any of the following apply.: EQLdo_they_apply
+    datatype: radio
     choices: 
     - I was asked or required to keep the animal under control
     - The discriminator had reasonable suspicion that the animal had an infectious disease 
-    - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
-    - I provided them with said evidence (if above applies)
-    - None apply 
+    - I was asked for evidence that the animal is trained to meet hygeine and/or behaviour requirements
     show if: 
       variable: EQLanimal
       is: Yes
     required: false
   - note: |
-      Who was there? What happened?
+      What happened and who was there? 
   - no label: EQLwhowhat
     input type: area
+    default: |  
+      I was with my friends X, Y and Z. 
+      I was refused entry because of... 
   - note: |
       How have you been affected or impacted?    
   - no label: EQLimpact
@@ -79,12 +81,12 @@ fields:
      - Yes
      - No
     required: false
-  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers once you have completed the form.
+  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.com.au once you have completed the form.
     show if:
       variable: EQLevidence
       is: Yes
   - note: |
-      Have you made a complaint about this in the past?  
+      Has a complaint been made about this in the past?  
   - no label: EQLpast_complaint
     datatype: radio
     choices:
@@ -95,20 +97,14 @@ fields:
     show if:
       variable: EQLpast_complaint
       is: Yes
+    default: |  
+      The complaint was made to X lawyers.
   - What was the outcome?: EQLpast_complaint_outcome
     datatype: area
     show if:
       variable: EQLpast_complaint
       is: Yes
+    default: |  
+      The case went to court and ... 
 section: Incident Information
----
-question: |
-  Incident Questions Completed
-subquestion: |
-  Thank you for filling out this section of the form. 
-  
-  You will now be asked questions about what you would like to see happen with your claim moving forward.
-  
-  When you are ready to continue, press the button below.
-continue button field: EQL_incident_questions_completed
 ---

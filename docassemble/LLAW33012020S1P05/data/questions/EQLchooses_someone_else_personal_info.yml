@@ -1,0 +1,196 @@
+# When a user chooses "someone else"
+---
+question: |
+  What is your relationship with the affected person?
+fields:
+  - no label: EQLrelation_to
+    datatype: radio
+    choices:
+    - Parent / Guardian
+    - Carer
+    - Partner
+    - Friend
+    - Other
+  - Please specify: EQLrelation_to
+    show if:
+      variable: EQLrelation_to
+      is: Other
+section: Personal Information
+---
+question: |
+  What is your name?
+fields:
+  - note: |
+      First Name:
+  - no label: EQLfirstname2
+    default: |  
+      Sally
+  - note: |
+      Last Name:
+  - no label: EQLlastname2
+    required: false
+    default: |  
+      Smith
+section: Personal Information
+---
+question: |
+  Contact details
+fields: 
+  - note: |
+      Email Address:
+  - no label: EQLemail2
+    datatype: email 
+    required: false
+    default: |  
+      sally.smith@gmail.com
+  - note: |
+      Phone Number:
+  - no label: EQLphone2
+    datatype: integer
+    required: false
+    default: |  
+      0412345678
+  - note: |
+      Residential Address:
+  - no label: EQLaddress2
+    datatype: area
+    hint: e.g., 123 First Street, Adelaide, South Australia, 5000
+    required: false
+section: Personal Information
+---
+question: |
+  Do you have a disability yourself?
+fields:
+  - no label: EQLrelation_to_dis
+    datatype: radio
+    choices: 
+    - Yes
+    - No
+section: Personal Information
+---
+question: |
+  What is the name of the affected person?
+fields:
+  - note: |
+      First Name:
+  - no label: EQLfirstname3
+    default: |  
+      John
+  - note: |
+      Last Name:
+  - no label: EQLlastname3
+    required: false
+    default: |  
+      Smith
+section: Personal Information
+---
+question: |
+  Contact details of the affected person:
+fields: 
+  - note: |
+      Email Address:
+  - no label: EQLemail3
+    datatype: email 
+    required: false
+    default: |  
+      john.smith@gmail.com
+  - note: |
+      Phone Number:
+  - no label: EQLphone3
+    datatype: integer
+    required: false
+    default: |  
+      0412345678
+  - note: |
+      Residential Address:
+  - no label: EQLaddress3
+    datatype: area
+    hint: e.g., 123 First Street, Adelaide, South Australia, 5000
+    required: false
+section: Personal Information
+---
+question: |
+  Please select the statement that best reflects the affected person's situation?
+fields:
+  - no label: EQLdis3
+    datatype: radio
+    choices:
+    - They have a disability
+    - They had a disability in the past
+    - They may develop a disability in the future
+    - People think they have a disability
+    - They do not have a disability
+section: Personal Information
+---
+# When uses selects "They have..." or "They had..."
+question: |
+  What disability?
+fields:
+  - no label: EQLdis_type3
+    datatype: radio
+    choices:
+    - Physical
+    - Sensory
+    - Psychiatric
+    - Neurological
+    - Cognitive
+    - Intellectual
+    - I prefer not to say
+    - Other
+  - Please specify: EQLdis_type3
+    show if:
+      variable: EQLdis_type3
+      is: Other
+section: Personal Information
+---
+# When user selects "disability in the future..."
+question: |
+  What disability may they develop in the future? 
+fields: 
+  - Please specify: EQLexplain_future3
+    input type: area
+section: Personal Information
+---
+# When user selects "ppl thk they have..."
+question: |
+  What disability do people think they have?
+fields: 
+  - Please specify: EQLexplain_ppl_thk3
+    input type: area
+section: Personal Information
+---
+# When user selects "none of the above..."
+question: |  
+  Have they been treated differently because of their relationship or association with a disabled person?
+fields:
+  - no label: EQLrelationship3
+    choices: 
+    - Yes
+    - No
+section: Personal Information
+---
+question: |
+  What is their relationship or association with the disabled person?
+fields:
+  - no label: EQLrelationship_with3
+    datatype: radio
+    choices:
+    - Friend
+    - Partner 
+    - Family member 
+    - Other
+  - Please specify: EQLrelationship_with3
+    show if:
+      variable: EQLrelationship_with3
+      is: Other
+section: Personal Information
+---
+question: |
+  This form is for disability discrimination.
+subquestion: |
+  Briefly explain why this form is suited for them:
+fields:
+  - no label: EQLfor_me3
+    input type: area
+section: Personal Information
+---
