@@ -65,8 +65,8 @@ subquestion: |
 attachment:
     name: Disability Discrimination Form
     filename: Disability_Discrimination_Form
-    variable name: EQL_Form
-    docx template file: test_document.docx
+    variable name: EQLform
+    docx template file: test_PDF.docx
     valid formats: 
       - pdf
 buttons:
@@ -85,8 +85,8 @@ subquestion: |
 attachment:
     name: Disability Discrimination Form
     filename: Disability_Discrimination_Form
-    variable name: EQL_Form
-    docx template file: test_document.docx
+    variable name: EQLform
+    docx template file: test_PDF.docx
     valid formats: 
       - pdf
 buttons:
@@ -96,22 +96,10 @@ buttons:
 event: email_not_sent
 ---
 code: |
-  send_email(to=[authority],
-                       template=my_email,
-                       attachments=[EQL_Form])
+  email_sent_ok = send_email(to=authority, attachment=EQLform)
 ---                    
 code: |
   authority.name.first = 'Casey'
   authority.name.last = 'Moffatt'
   authority.email = 'caseyannmoffatt@hotmail.com'
----
-template: my_email
-subject: |
-  Ensuring Equality: Disablity Discrimination Form
-content: |
-  Dear Casey,
-  
-  Attached is a copy of the *Ensuring Equality: Disablity Discrimination Form.*
-  
-  Thank you.
 ---

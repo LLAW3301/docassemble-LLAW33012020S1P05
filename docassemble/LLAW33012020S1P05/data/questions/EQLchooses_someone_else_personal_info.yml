@@ -135,6 +135,7 @@ fields:
     - Neurological
     - Cognitive
     - Intellectual
+    - I prefer not to say
     - Other
   - Please specify: EQLdis_type3
     show if:

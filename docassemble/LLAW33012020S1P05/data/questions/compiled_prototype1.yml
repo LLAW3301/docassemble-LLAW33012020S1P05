@@ -268,14 +268,14 @@ code: |
 mandatory: True
 code: | 
   EQLoutcome
-  if EQLoutcome == 'I would like to make a complaint':
+  if EQLoutcome == 'I would like to make a formal complaint':
     EQLoutcome_complaint
 ---
 # Sends user to sending page and the final screen
 mandatory: true
 code: |
   if submit_to_authority == 'Yes':
-    send_email
+    email_sent_ok
     EQLcontact_me
     email_sent
   if submit_to_authority == 'No':
