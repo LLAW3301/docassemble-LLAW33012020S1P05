@@ -1,0 +1,137 @@
+---
+question: |
+  Reviewing Your Answers
+subquestion: |
+  Below is a list of the answers you have given. Press the **Edit Answer** button to change your answer.
+review:
+  - Edit answer: EQLperson_filling_in_form
+    button: |
+      Are you filling in this form for yourself or someone else? **${ EQLperson_filling_in_form }**
+  - Edit answer: EQLfirstname1
+    button: |
+      Name: **${ EQLfirstname1 }** **${ EQLlastname1 }**
+  - Edit answer: EQLemail1
+    button: |
+      Email: **${ EQLemail1 }**
+  - Edit answer: EQLphone1
+    button: |
+      Phone Number: **${ EQLphone1 }**
+  - Edit answer: EQLaddress1
+    button: |
+      Residential Address: **${ EQLaddress1 }**
+  - Edit answer: EQLdis1
+    button: |
+      Your situation: **${ EQLdis1 }**
+  - Edit answer: EQLdis_type1
+    button: |
+      Disability type: **${ EQLdis_type1 }**
+  - Edit answer: EQLexplain_future1
+    button: |
+      What disability may you develop in the future? **${ EQLexplain_future1 }**
+  - Edit answer: EQLexplain_ppl_thk1
+    button: |
+      What disability do people think you have? **${ EQLexplain_ppl_thk1 }**
+  - Edit answer: EQLrelationship1
+    button: |
+      Have you been treated differently because of your relationshiip with a disabled person? **${ EQLrelationship1 }**      
+  - Edit answer: EQLrelationship_with1
+    button: |
+      What is your relationshiip with the disabled person? **${ EQLrelationship_with1 }**       
+  - Edit answer: EQLfor_me1
+    button: |
+      Why do you believe this form applies to you? **${ EQLfor_me1 }**   
+  - Edit answer: EQLrelation_to
+    button: |
+      What is your relatioinship with the affected person? **${ EQLrelation_to }**   
+  - Edit answer: EQLfirstname2
+    button: |
+      Name: **${ EQLfirstname2 }** **${ EQLlastname2 }**
+  - Edit answer: EQLemail2
+    button: |
+      Email: **${ EQLemail2 }**
+  - Edit answer: EQLphone2
+    button: |
+      Phone Number: **${ EQLphone2 }**
+  - Edit answer: EQLaddress2
+    button: |
+      Residential Address: **${ EQLaddress2 }**
+  - Edit answer: EQLrelation_to_dis
+    button: |
+      Do you have a disability? **${ EQLrelation_to_dis }**
+  - Edit answer: EQLfirstname3
+    button: |
+      Name of the affected person: **${ EQLfirstname3 }** **${ EQLlastname3 }**  
+  - Edit answer: EQLemail3
+    button: |
+      Email: **${ EQLemail3 }**
+  - Edit answer: EQLphone3
+    button: |
+      Phone Number: **${ EQLphone3 }**
+  - Edit answer: EQLaddress3
+    button: |
+      Residential Address: **${ EQLaddress3 }** 
+  - Edit answer: EQLdis3
+    button: |
+      Situation of affected person: **${ EQLdis3 }**       
+  - Edit answer: EQLdis_type3
+    button: |
+      Disability Type: **${ EQLdis_type3 }**       
+  - Edit answer: EQLexplain_future3
+    button: |
+      What disability may the affected person develop in the future? **${ EQLexplain_future3 }**        
+  - Edit answer: EQLexplain_ppl_thk3
+    button: |
+      What disability do people think the affected person has? **${ EQLexplain_ppl_thk3 }**    
+  - Edit answer: EQLrelationship3
+    button: |
+      Have they been treated differently because of their rerlatioinship with a disabled person? **${ EQLrelationship3 }**         
+  - Edit answer: EQLrelationship_with3
+    button: |
+      What is their relationship with the disabled person? **${ EQLrelationship_with3 }** 
+  - Edit answer: EQLfor_me3
+    button: |
+      Why do you believe this form applies to you? **${ EQLfor_me3 }** 
+  - Edit answer: EQLdate
+    button: |
+      Date of incident **${ EQLdate }** 
+  - Edit answer: EQLwhere
+    button: |
+      Location of incident: **${ EQLwhere }** 
+  - Edit answer: EQLanimal
+    button: |
+      Was an assistance animal involved? **${ EQLanimal }**
+  - Edit answer: EQLwhowhat
+    button: |
+      What happened and who was involved? **${ EQLwhowhat }** 
+  - Edit answer: EQLimpact
+    button: |
+      How have you been affected? **${ EQLimpact }** 
+  - Edit answer: EQLevidence
+    button: |
+      Do you have any evidence? **${ EQLevidence }** 
+  - Edit answer: EQLpast_complaint
+    button: |
+      Have you made a complaint about this in the past? **${ EQLpast_complaint }** 
+  - Edit answer: EQLpast_complaint2who
+    button: |
+      Who was the complaint made to? **${ EQLpast_complaint2who }** 
+  - Edit answer: EQLpast_complaint_outcome
+    button: |
+      Outcome of previous complaint: **${ EQLpast_complaint_outcome }** 
+  - Edit answer: EQLoutcome
+    button: |
+      What would you like to see happen once filling out this form? **${ EQLoutcome }**
+  - Edit answer: EQLoutcome_complaint
+    button: |
+      What would you like to see happen once making a formal complaint? **${ EQLoutcome_complaint }**
+  - Edit answer: submit_to_authority
+    button: |
+      Would you like your answers sent to Equality Lawyers? **${ submit_to_authority }**
+  - Edit answer: EQLcontact_me
+    button: |
+      Preferred method of contact: **${ EQLcontact_me }**
+  - Edit answer: EQLday2contact
+    button: |
+      Best time to be contacted: **${ EQLday2contact }** **${ EQLcontact_time }**
+continue button field: user_review
+---

@@ -60,13 +60,12 @@ subquestion: |
   Your information has been sent to Natalie Wade at Equality Lawyers for review. You will be contacted shortly to discuss the information you have provided. A PDF of the completed form is also available for you to download below.
   
   You can also email a copy of the PDF to yourself, or someone else, by entering the email adress below.
-
   Pressing **Exit** will direct you back to the Equality Lawyers website, where further information regarding disability discrimination is available. Alternatively, you can complete the form again by pressing **Restart**.
 attachment:
     name: Disability Discrimination Form
     filename: Disability_Discrimination_Form
-    variable name: EQL_Form
-    docx template file: test_document.docx
+    variable name: EQLform
+    docx template file: test_PDF.docx
     valid formats: 
       - pdf
 buttons:
@@ -80,13 +79,12 @@ question: |
   Okay, all done! 
 subquestion: |
   A PDF containing a record of your responses is available for you to download below. You can also email a copy of the PDF to yourself, or someone else, by entering the email adress below.
-
   Pressing **Exit** will direct you back to the Equality Lawyers website, where further information regarding disability discrimination is available. Alternatively, you can complete the form again by pressing **Restart**.
 attachment:
     name: Disability Discrimination Form
     filename: Disability_Discrimination_Form
-    variable name: EQL_Form
-    docx template file: test_document.docx
+    variable name: EQLform
+    docx template file: test_PDF.docx
     valid formats: 
       - pdf
 buttons:
@@ -96,22 +94,10 @@ buttons:
 event: email_not_sent
 ---
 code: |
-  send_email(to=[authority],
-                       template=my_email,
-                       attachments=[EQL_Form])
+  email_sent_ok = send_email(to=authority, attachment=EQLform)
 ---                    
 code: |
   authority.name.first = 'Casey'
   authority.name.last = 'Moffatt'
   authority.email = 'caseyannmoffatt@hotmail.com'
----
-template: my_email
-subject: |
-  Ensuring Equality: Disablity Discrimination Form
-content: |
-  Dear Casey,
-  
-  Attached is a copy of the *Ensuring Equality: Disablity Discrimination Form.*
-  
-  Thank you.
 ---
