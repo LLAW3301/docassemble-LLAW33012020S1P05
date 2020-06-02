@@ -13,7 +13,7 @@ fields:
     required: false
   - note: |
       If the time of the incident cannot be specified (e.g. it is ongoing, or it happened over a period of time), please specify below. 
-  - no label: EQLdate_other
+  - no label: EQLdate
     input type: area
     required: false
 section: Incident Information
@@ -51,12 +51,13 @@ fields:
       - Yes
       - No 
   - Do any of the following apply?: EQLdo_they_apply
-    datatype: checkboxes
+    datatype: radio
     choices: 
     - I was asked or required to keep the animal under control
     - The discriminator had reasonable suspicion that the animal had an infectious disease 
-    - I was asked for evidence that the animal is trained to meet hygeine and/ behaviour requirements
+    - I was asked for evidence that the animal is trained to meet hygiene and/or behaviour requirements
     - I provided them with said evidence (if the above applies)
+    - None of these apply
     - I am not sure
     show if: 
       variable: EQLanimal
