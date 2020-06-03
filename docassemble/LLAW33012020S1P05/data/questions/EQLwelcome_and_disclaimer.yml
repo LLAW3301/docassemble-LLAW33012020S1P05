@@ -39,3 +39,7 @@ buttons:
     url: https://www.equalitylawyers.com.au/
 section: Disclaimer
 ---
+objects:
+  - JIWlogo: DAStaticFile.using(filename='EQL.logo.png')
+  - EQLfont: DAStaticFile.using(filename='barlow-semi-condensed.medium.ttf')
+---
