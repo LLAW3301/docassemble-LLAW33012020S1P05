@@ -35,7 +35,7 @@ objects:
 ---
 mandatory: True
 code: |
-  set_parts(logo='<img src="' + JIWlogo.url_for() + '" style="height: 50px;">')
+  set_parts(logo='<img src="' + JIWlogo.url_for() + '" style="height: 50px; alt=''">')
 ---
 objects:
   - endpoint: DADict

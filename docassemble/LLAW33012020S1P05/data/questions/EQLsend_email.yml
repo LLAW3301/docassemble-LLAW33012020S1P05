@@ -4,7 +4,7 @@ objects:
 ---
 # Asks if the user would like the information sent to Natalie
 question: |
-  Would you like your answers sent to Natalie Wade at Equality Lawyers for review?
+  Would you like your responses sent to Natalie Wade at Equality Lawyers for review?
 subquestion: |
   By pressing **Yes** you agree to be contacted by Equality Lawyers in the near future.
 fields:
@@ -25,7 +25,7 @@ fields:
     - Phone
     - Email
     - Other
-  - Please specify: EQLcontact_me
+  - Please specify: EQLcontact_me1
     show if:
       variable: EQLcontact_me
       is: Other
@@ -59,7 +59,7 @@ question: |
 subquestion: |
   Your information has been sent to Natalie Wade at Equality Lawyers for review. You will be contacted shortly to discuss the information you have provided. A PDF of the completed form is also available for you to download below.
   
-  You can also email a copy of the PDF to yourself, or someone else, by entering the email adress below.
+  You can also email a copy of the PDF to yourself, or someone else, by entering the email address below.
   Pressing **Exit** will direct you back to the Equality Lawyers website, where further information regarding disability discrimination is available. Alternatively, you can complete the form again by pressing **Restart**.
 attachment:
     name: Disability Discrimination Form
@@ -78,7 +78,7 @@ event: email_sent
 question: |
   Okay, all done! 
 subquestion: |
-  A PDF containing a record of your responses is available for you to download below. You can also email a copy of the PDF to yourself, or someone else, by entering the email adress below.
+  A PDF containing a record of your responses is available for you to download below. You can also email a copy of the PDF to yourself, or someone else, by entering the email address below.
   Pressing **Exit** will direct you back to the Equality Lawyers website, where further information regarding disability discrimination is available. Alternatively, you can complete the form again by pressing **Restart**.
 attachment:
     name: Disability Discrimination Form
