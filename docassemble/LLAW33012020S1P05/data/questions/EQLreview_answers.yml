@@ -2,7 +2,7 @@
 question: |
   Reviewing Your Answers
 subquestion: |
-  Below is a list of the answers you have given. Press the **Edit Answer** button to change your answer.
+  Below is a list of the answers you have given. Press the **Edit Answer** button to change your answer. If you did not give an answer then this symbol will appear: ****
 review:
   - Edit answer: EQLperson_filling_in_form
     button: |
@@ -21,10 +21,13 @@ review:
       Residential Address: **${ EQLaddress1 }**
   - Edit answer: EQLdis1
     button: |
-      Your situation: **${ EQLdis1 }**
+      Your situation: **${ EQLdis1 }** 
   - Edit answer: EQLdis_type1
     button: |
       Disability type: **${ EQLdis_type1 }**
+  - Edit answer: EQLdis_type_1
+    button: |
+      Disability type: **${ EQLdis_type_1 }**
   - Edit answer: EQLexplain_future1
     button: |
       What disability may you develop in the future? **${ EQLexplain_future1 }**
@@ -75,7 +78,10 @@ review:
       Situation of affected person: **${ EQLdis3 }**       
   - Edit answer: EQLdis_type3
     button: |
-      Disability Type: **${ EQLdis_type3 }**       
+      Disability Type: **${ EQLdis_type3 }**   
+  - Edit answer: EQLdis_type_3
+    button: |
+      Disability Type: **${ EQLdis_type_3 }**   
   - Edit answer: EQLexplain_future3
     button: |
       What disability may the affected person develop in the future? **${ EQLexplain_future3 }**        
@@ -93,7 +99,7 @@ review:
       Why do you believe this form applies to you? **${ EQLfor_me3 }** 
   - Edit answer: EQLdate
     button: |
-      Date of incident **${ EQLdate }** 
+      Date of incident **${ EQLdate or EQLdate1 }** 
   - Edit answer: EQLwhere
     button: |
       Location of incident: **${ EQLwhere }** 
@@ -121,6 +127,9 @@ review:
   - Edit answer: EQLoutcome
     button: |
       What would you like to see happen once filling out this form? **${ EQLoutcome }**
+  - Edit answer: EQLoutcome1
+    button: |
+      What would you like to see happen once filling out this form? **${ EQLoutcome1 }**
   - Edit answer: EQLoutcome_complaint
     button: |
       What would you like to see happen once making a formal complaint? **${ EQLoutcome_complaint }**

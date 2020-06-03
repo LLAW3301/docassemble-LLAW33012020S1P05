@@ -5,10 +5,10 @@ fields:
   - no label: EQLdate
     datatype: date
     required: false
-  - no label: EQLdate
+  - no label: EQLdate1
     datatype: checkboxes
     choices:
-      - I do not know
+      - I do not remember
     none of the above: False
     required: false
   - note: |
