@@ -120,19 +120,18 @@ code: |
 # Collects information about the desired outcome
 mandatory: True
 code: | 
-  EQLoutcome
-  user_review
   if EQLoutcome == 'I would like to make a formal complaint':
     EQLoutcome_complaint
+    user_review
+  else:
     user_review
 ---
 # Sends user to sending page and the final screen
 mandatory: true
 code: |
   if submit_to_authority == 'Yes':
-    email_sent_ok
-    EQLcontact_me
-    email_sent
-  if submit_to_authority == 'No':
+      EQLcontact_me
+      email_sent
+  else: 
     email_not_sent
 ---
