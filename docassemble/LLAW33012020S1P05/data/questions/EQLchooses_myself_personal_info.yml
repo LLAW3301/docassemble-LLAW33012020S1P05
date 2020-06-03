@@ -23,7 +23,6 @@ fields:
   - note: |
       Phone Number:
   - no label: EQLphone1
-    datatype: integer
     default: |  
       0412345678
   - note: |
