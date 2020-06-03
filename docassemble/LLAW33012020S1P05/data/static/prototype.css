@@ -22,6 +22,7 @@
   color: rgb(137,169,217);
   background-color: rgba(137,169,217,0.25);
   border-color: rgba(137,169,217,0.25);
+  border-radius: 0px;
 }
 
 /* ...and when hovering over it */
@@ -29,6 +30,7 @@
   color: rgb(137,169,217);
   background-color: rgba(255,255,255);
   border-color: rgba(137,169,217,0.25);
+  border-radius: 0px;
 }
 
 /* ...and the box shadow stuff */
@@ -44,6 +46,7 @@
   color: rgba(137,169,217, 0.75);
   background-color: rgba(26,43,76);
   border-color: rgba(26,43,76);
+  border-radius: 0px;
 }
 
 /* ...and when hovering over it */
@@ -51,6 +54,7 @@
   color: rgb(26,43,76);
   background-color: rgba(255,255,255);
   border-color: rgba(26,43,76,0.25);
+  border-radius: 0px;
 }
 
 /* Sets the appearnce for the 'Restart' button... */
@@ -58,19 +62,22 @@
   color: rgba(137,169,217, 0.75);
   background-color: rgba(26,43,76);
   border-color: rgba(26,43,76);
+  border-radius: 0px;
 }
 /* ...and when hovering over it */
 .btn-warning:hover{
   color: rgb(26,43,76);
   background-color: rgba(255,255,255);
   border-color: rgba(26,43,76,0.25);
+  border-radius: 0px;
 }
 
-/* Sets the appearence for the 'Exit' button... */
+/* Sets the appearence for the 'Exit' and 'Return to Home Page' buttons... */
 .btn-danger{
   color: rgba(137,169,217, 0.75);
   background-color: rgba(26,43,76);
-  border-color: rgba(26,43,76);
+  border-color: rgba(26,43,76,0.5);
+  border-radius: 0px;
 }
 
 /* ...and when hovering over it */
@@ -120,6 +127,7 @@
   color: rgb(255,255,255);
   background-color: rgba(26,43,76);
   border-color: rgba(26,43,76);
+  border-radius: 0px;
   text-decoration: none
 }
 
@@ -128,6 +136,7 @@
   color: rgb(26,43,76);
   background-color: rgba(255,255,255);
   border-color: rgba(26,43,76);
+  border-radius: 0px;
   text-decoration: none
 }
 
