@@ -156,6 +156,7 @@ question: |
   Have they been treated differently because of their relationship or association with a disabled person?
 fields:
   - no label: EQLrelationship3
+    datatype: radio
     choices: 
     - Yes
     - No

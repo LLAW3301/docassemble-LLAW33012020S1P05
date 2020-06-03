@@ -62,7 +62,7 @@ fields:
     - Intellectual
     - I prefer not to say
     - Other
-  - Please specify: EQLdis_type1
+  - Please specify: EQLdis_type_1
     show if:
       variable: EQLdis_type1
       is: Other
@@ -77,7 +77,7 @@ fields:
     default: |
       I may develop ...
       More information on this is ... 
-section: Personal Infromation
+section: Personal Information
 ---
 # When user selects "ppl thk I have..."
 question: |
@@ -95,6 +95,7 @@ question: |
   Have you been treated differently because of your relationship or association with a disabled person?
 fields:
   - no label: EQLrelationship1
+    datatype: radio
     choices: 
     - Yes
     - No

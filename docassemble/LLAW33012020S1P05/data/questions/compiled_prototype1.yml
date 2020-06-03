@@ -59,7 +59,7 @@ sections:
 ---
 # Collects personal and disability information
 question: |
-  Are you fillng out this form for yourself or on the behalf of someone else?
+  Are you filling out this form for yourself or on the behalf of someone else?
 fields:
   - no label: EQLperson_filling_in_form
     datatype: radio
