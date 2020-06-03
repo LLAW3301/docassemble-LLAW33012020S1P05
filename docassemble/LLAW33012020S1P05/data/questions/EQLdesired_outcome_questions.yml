@@ -9,7 +9,7 @@ fields:
       - I would like to make a formal complaint
       - I am not sure 
       - Other
-  - Please specify: EQLoutcome1
+  - Please specify: EQLoutcome
     show if:
       variable: EQLoutcome
       is: Other
