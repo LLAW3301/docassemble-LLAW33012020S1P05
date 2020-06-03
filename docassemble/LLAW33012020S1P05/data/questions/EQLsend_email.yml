@@ -25,7 +25,7 @@ fields:
     - Phone
     - Email
     - Other
-  - Please specify: EQLcontact_me1
+  - Please specify: EQLcontact_me
     show if:
       variable: EQLcontact_me
       is: Other
@@ -51,7 +51,7 @@ fields:
     - Between 9:00am and 12:00pm
     - Between 12:00pm and 3:00pm
     - Between 3:00pm and 5:00pm
-section: Summary
+section: Outcome
 ---
 # END SCREEN...If user DOES want the information sent
 question: |
