@@ -121,7 +121,7 @@ fields:
     - Intellectual
     - Prefer not to say
     - Other
-  - Please specify: EQLdis_type_3
+  - Please specify: EQLdis_type3
     show if:
       variable: EQLdis_type3
       is: Other
