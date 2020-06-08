@@ -5,6 +5,7 @@ question: |
 fields:
   - no label: EQLrelation_to
     datatype: radio
+    default: Parent / Guardian
     choices:
     - Parent / Guardian
     - Carer
@@ -55,6 +56,7 @@ question: |
 fields:
   - no label: EQLrelation_to_dis
     datatype: radio
+    default: No
     choices: 
     - Yes
     - No
@@ -98,6 +100,7 @@ question: |
 fields:
   - no label: EQLdis3
     datatype: radio
+    default: They have a disability
     choices:
     - They have a disability
     - They had a disability in the past
@@ -112,6 +115,7 @@ question: |
 fields:
   - no label: EQLdis_type3
     datatype: radio
+    default: Prefer not to say
     choices:
     - Physical
     - Sensory
@@ -183,5 +187,9 @@ subquestion: |
 fields:
   - no label: EQLfor_me3
     input type: area
+    hint: |
+      This form is relevant to me because...
+    default: |  
+      This form is relevant to me because...
 section: Personal Information
 ---

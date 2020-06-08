@@ -7,6 +7,7 @@ fields:
     required: false
   - no label: EQLdate1
     datatype: checkboxes
+    default: I do not remember
     choices:
       - I do not remember
     none of the above: False
@@ -23,6 +24,7 @@ question: |
 fields: 
   - no label: EQLwhere
     datatype: radio
+    default: Work or other employment
     choices:
     - Home 
     - Work or other employment
@@ -67,6 +69,9 @@ fields:
       What happened and who was there? 
   - no label: EQLwhowhat
     input type: area
+    hint: |
+      I was with my friends X, Y and Z. 
+      I was refused entry because of... 
     default: |  
       I was with my friends X, Y and Z. 
       I was refused entry because of... 
@@ -82,7 +87,7 @@ fields:
     choices:
      - Yes
      - No
-  - note: That’s great! You can send this direct to Equality Lawyers by emailing hello@equalitylawyers.com.au once you have completed the form.
+  - note: That’s great! Make sure you keep this as you may be asked about it if you choose to send this form to a lawyer for review.
     show if:
       variable: EQLevidence
       is: Yes
@@ -98,14 +103,20 @@ fields:
     show if:
       variable: EQLpast_complaint
       is: Yes
+    hint: |
+      The complaint was made to ABC Lawyers...
+      I told my boss about...
     default: |  
-      The complaint was made to X lawyers.
+      The complaint was made to ABC Lawyers.
   - What was the outcome?: EQLpast_complaint_outcome
     datatype: area
     show if:
       variable: EQLpast_complaint
       is: Yes
+    hint: |
+      The case went to court and...
+      I received an apology from...      
     default: |  
-      The case went to court and ... 
+      The case went to court and...
 section: Incident Information
 ---

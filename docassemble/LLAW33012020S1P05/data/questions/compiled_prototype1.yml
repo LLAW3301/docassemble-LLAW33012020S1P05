@@ -29,8 +29,8 @@ default screen parts:
 ---
 features:
   css: prototype.css
-  debug: True
-  hide standard menu: False
+  debug: False
+  hide standard menu: True
   navigation: True
 ---
 objects:
@@ -58,6 +58,7 @@ sections:
   - Personal Information: Personal Information
   - Incident Information: Incident Information
   - Outcome: Outcome
+  - Review: Review
   - Summary: Summary 
 ---
 # Collects personal and disability information

@@ -38,6 +38,7 @@ question: |
 fields:
   - no label: EQLdis1
     datatype: radio
+    default: I have a disability
     choices:
     - I have a disability
     - I had a disability in the past
@@ -52,6 +53,7 @@ question: |
 fields:
   - no label: EQLdis_type1
     datatype: radio
+    default: I prefer not to say
     choices:
     - Physical
     - Sensory
@@ -123,6 +125,8 @@ subquestion: |
 fields:
   - no label: EQLfor_me1
     input type: area
+    hint: |
+      This form is relevant to me because...
     default: |  
       This form is relevant to me because...
 section: Personal Information
