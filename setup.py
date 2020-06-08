@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012020S1P05',
       version='0.0.1',
       description=('A docassemble extension.'),
-      long_description='# Package P05',
+      long_description="# Ensuring Equality: Discrimination Reporting Form\r\n\r\n### Written and Developed by Group P05\r\n\r\nThe *Ensuring Equality: Discrimination Reporting Form* is a user-friendly questionnaire-based website application. It has been created to assist in fast-tracking the legal consultative process, regarding disability and equal opportunity discrimination. \r\n\r\nIt does this by allowing our client, Equality Lawyers, to understand the circumstances surrounding a potential claim prior to any client/lawyer interaction.\r\n\r\nThe questions asked and the responses given will ultimately paint an informative picture of a potential discriminatory scenario. This information will then generate a downloadable PDF which can be sent to a lawyer for review or downloaded for the user's own keeping.\r\n",
       long_description_content_type='text/markdown',
       author='Mark Ferraretto',
       author_email='mark.ferraretto@flinders.edu.au',
