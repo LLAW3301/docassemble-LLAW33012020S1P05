@@ -13,7 +13,7 @@ fields:
     choices:
     - Yes
     - No
-section: Summary
+section: Review
 ---
 # If user DOES want the information sent
 question: |
@@ -69,9 +69,9 @@ attachment:
     valid formats: 
       - pdf
 buttons:
-  - Exit: EQLthanks
+  - "Restart": restart
+  - "Return to Home Page": exit
     url: https://www.equalitylawyers.com.au/
-  - Restart: restart
 event: email_sent
 ---
 # END SCREEN...If user DOES NOT want the information sent
@@ -88,9 +88,9 @@ attachment:
     valid formats: 
       - pdf
 buttons:
-  - Exit: EQLthanks
+  - "Restart": restart
+  - "Return to Home Page": exit
     url: https://www.equalitylawyers.com.au/
-  - Restart: restart
 event: email_not_sent
 ---
 code: |
