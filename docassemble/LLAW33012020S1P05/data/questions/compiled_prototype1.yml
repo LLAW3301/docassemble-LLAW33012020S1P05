@@ -26,7 +26,6 @@ default screen parts:
     </div>
     </div>
 ---
----
 features:
   css: prototype.css
   debug: False
