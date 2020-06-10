@@ -6,7 +6,7 @@ objects:
 question: |
   Would you like your responses sent to Natalie Wade at Equality Lawyers for review?
 subquestion: |
-  By pressing **Yes** you agree to be contacted by Equality Lawyers in the near future.
+  By pressing **Yes** you agree that Equality Lawyers may contact you in the near future to discuss your responses.
 fields:
   - no label: submit_to_authority
     datatype: radio
