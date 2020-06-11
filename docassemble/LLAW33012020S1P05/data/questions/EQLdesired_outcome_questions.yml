@@ -4,6 +4,7 @@ Question: |
 fields:
   - no label: EQLoutcome
     datatype: radio
+    default: I would like to speak with a lawyer to discuss my options
     choices:
       - I would like to speak with a lawyer to discuss my options
       - I would like to make a formal complaint

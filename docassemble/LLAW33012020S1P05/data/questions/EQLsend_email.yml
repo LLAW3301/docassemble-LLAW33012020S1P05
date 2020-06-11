@@ -34,6 +34,7 @@ fields:
       variable: EQLcontact_me
       is: Phone
     datatype: radio
+    default: Any day
     choices: 
     - Any day
     - Monday
@@ -46,6 +47,7 @@ fields:
       variable: EQLcontact_me
       is: Phone
     datatype: radio
+    default: Any time
     choices:
     - Any time
     - Between 9:00am and 12:00pm
